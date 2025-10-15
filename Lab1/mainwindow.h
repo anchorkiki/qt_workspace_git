@@ -19,5 +19,10 @@ public:
 
 private:
     Ui::MainWindow *ui;
+
+private slots:
+    void btnNumClicked();
+    void on_butPoint_clicked();
+    void on_butDelete_clicked();
 };
 #endif // MAINWINDOW_H
