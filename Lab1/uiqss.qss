@@ -1,0 +1,14 @@
+QPushButton{
+    background-color: #f0f0f0;
+    color: #333333;
+    font-size: 24px;
+}
+
+QPushButton:hover{
+    background-color: #c8e4ff;
+    color: #0a65cc;
+}
+
+QLineEdit{
+    font-size:48px
+}

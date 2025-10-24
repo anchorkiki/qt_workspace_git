@@ -29,6 +29,13 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->btnInverse,SIGNAL(clicked()),this,SLOT(btnUnaryOperatorClicked()));
     connect(ui->btnSquare,SIGNAL(clicked()),this,SLOT(btnUnaryOperatorClicked()));
     connect(ui->btnSqrt,SIGNAL(clicked()),this,SLOT(btnUnaryOperatorClicked()));
+
+    QFile qssFile(":/uiqss.qss"); // 假设qss文件路径为资源文件中的style.qss
+    if (qssFile.open(QFile::ReadOnly)) {
+        QString style = QLatin1String(qssFile.readAll());
+        this->setStyleSheet(style);
+        qssFile.close();
+    }
 }
 
 MainWindow::~MainWindow()

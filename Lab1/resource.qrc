@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>uiqss.qss</file>
+    </qresource>
+</RCC>

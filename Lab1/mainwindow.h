@@ -9,6 +9,7 @@
 #include <QPushButton>
 #include <QMap>
 #include <QDebug>
+#include <QFile>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
