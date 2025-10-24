@@ -27,32 +27,32 @@ class Ui_MainWindow
 public:
     QWidget *centralwidget;
     QVBoxLayout *verticalLayout;
-    QGridLayout *gridLayout_2;
-    QPushButton *butInverse;
-    QPushButton *but4;
-    QPushButton *but3;
-    QPushButton *but5;
-    QPushButton *but6;
-    QPushButton *but9;
-    QPushButton *butMultiply;
+    QGridLayout *gridLayout_4;
+    QPushButton *btnNum6;
+    QPushButton *btnPlus;
+    QPushButton *btnInverse;
+    QPushButton *btnClear;
+    QPushButton *btnNum4;
+    QPushButton *btnClearAll;
+    QPushButton *btnNum5;
+    QPushButton *btnEqual;
+    QPushButton *btnNum9;
+    QPushButton *btnSquare;
+    QPushButton *btnNum7;
+    QPushButton *btnDivide;
+    QPushButton *btnMinus;
+    QPushButton *btnNum2;
+    QPushButton *btnSqrt;
     QLineEdit *display;
-    QPushButton *butDelete;
-    QPushButton *butMinus;
-    QPushButton *but8;
-    QPushButton *butEqual;
-    QPushButton *butCE;
-    QPushButton *but0;
-    QPushButton *butSubtract;
-    QPushButton *butDivide;
-    QPushButton *butC;
-    QPushButton *but7;
-    QPushButton *but1;
-    QPushButton *butSquare;
-    QPushButton *butPercent;
-    QPushButton *butSquareRoot;
-    QPushButton *butPoint;
-    QPushButton *but2;
-    QPushButton *butPlus;
+    QPushButton *btnPoint;
+    QPushButton *btnDel;
+    QPushButton *btnSign;
+    QPushButton *btnNum8;
+    QPushButton *btnNum1;
+    QPushButton *btnNum0;
+    QPushButton *btnNum3;
+    QPushButton *btnMultiple;
+    QPushButton *btnPercentage;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -60,204 +60,230 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(698, 451);
+        MainWindow->resize(561, 456);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         verticalLayout = new QVBoxLayout(centralwidget);
         verticalLayout->setSpacing(3);
         verticalLayout->setObjectName("verticalLayout");
         verticalLayout->setContentsMargins(1, 1, 1, 1);
-        gridLayout_2 = new QGridLayout();
-        gridLayout_2->setObjectName("gridLayout_2");
-        butInverse = new QPushButton(centralwidget);
-        butInverse->setObjectName("butInverse");
-        QSizePolicy sizePolicy(QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Preferred);
+        gridLayout_4 = new QGridLayout();
+        gridLayout_4->setObjectName("gridLayout_4");
+        btnNum6 = new QPushButton(centralwidget);
+        btnNum6->setObjectName("btnNum6");
+        QSizePolicy sizePolicy(QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Minimum);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(butInverse->sizePolicy().hasHeightForWidth());
-        butInverse->setSizePolicy(sizePolicy);
+        sizePolicy.setHeightForWidth(btnNum6->sizePolicy().hasHeightForWidth());
+        btnNum6->setSizePolicy(sizePolicy);
+        QFont font;
+        font.setPointSize(15);
+        btnNum6->setFont(font);
 
-        gridLayout_2->addWidget(butInverse, 2, 0, 1, 1);
+        gridLayout_4->addWidget(btnNum6, 4, 2, 1, 1);
 
-        but4 = new QPushButton(centralwidget);
-        but4->setObjectName("but4");
-        sizePolicy.setHeightForWidth(but4->sizePolicy().hasHeightForWidth());
-        but4->setSizePolicy(sizePolicy);
+        btnPlus = new QPushButton(centralwidget);
+        btnPlus->setObjectName("btnPlus");
+        sizePolicy.setHeightForWidth(btnPlus->sizePolicy().hasHeightForWidth());
+        btnPlus->setSizePolicy(sizePolicy);
+        btnPlus->setFont(font);
 
-        gridLayout_2->addWidget(but4, 4, 0, 1, 1);
+        gridLayout_4->addWidget(btnPlus, 5, 3, 1, 1);
 
-        but3 = new QPushButton(centralwidget);
-        but3->setObjectName("but3");
-        sizePolicy.setHeightForWidth(but3->sizePolicy().hasHeightForWidth());
-        but3->setSizePolicy(sizePolicy);
+        btnInverse = new QPushButton(centralwidget);
+        btnInverse->setObjectName("btnInverse");
+        sizePolicy.setHeightForWidth(btnInverse->sizePolicy().hasHeightForWidth());
+        btnInverse->setSizePolicy(sizePolicy);
+        btnInverse->setFont(font);
 
-        gridLayout_2->addWidget(but3, 5, 2, 1, 1);
+        gridLayout_4->addWidget(btnInverse, 2, 0, 1, 1);
 
-        but5 = new QPushButton(centralwidget);
-        but5->setObjectName("but5");
-        sizePolicy.setHeightForWidth(but5->sizePolicy().hasHeightForWidth());
-        but5->setSizePolicy(sizePolicy);
+        btnClear = new QPushButton(centralwidget);
+        btnClear->setObjectName("btnClear");
+        sizePolicy.setHeightForWidth(btnClear->sizePolicy().hasHeightForWidth());
+        btnClear->setSizePolicy(sizePolicy);
+        btnClear->setFont(font);
 
-        gridLayout_2->addWidget(but5, 4, 1, 1, 1);
+        gridLayout_4->addWidget(btnClear, 1, 1, 1, 1);
 
-        but6 = new QPushButton(centralwidget);
-        but6->setObjectName("but6");
-        sizePolicy.setHeightForWidth(but6->sizePolicy().hasHeightForWidth());
-        but6->setSizePolicy(sizePolicy);
+        btnNum4 = new QPushButton(centralwidget);
+        btnNum4->setObjectName("btnNum4");
+        sizePolicy.setHeightForWidth(btnNum4->sizePolicy().hasHeightForWidth());
+        btnNum4->setSizePolicy(sizePolicy);
+        btnNum4->setFont(font);
 
-        gridLayout_2->addWidget(but6, 4, 2, 1, 1);
+        gridLayout_4->addWidget(btnNum4, 4, 0, 1, 1);
 
-        but9 = new QPushButton(centralwidget);
-        but9->setObjectName("but9");
-        sizePolicy.setHeightForWidth(but9->sizePolicy().hasHeightForWidth());
-        but9->setSizePolicy(sizePolicy);
+        btnClearAll = new QPushButton(centralwidget);
+        btnClearAll->setObjectName("btnClearAll");
+        sizePolicy.setHeightForWidth(btnClearAll->sizePolicy().hasHeightForWidth());
+        btnClearAll->setSizePolicy(sizePolicy);
+        btnClearAll->setFont(font);
 
-        gridLayout_2->addWidget(but9, 3, 2, 1, 1);
+        gridLayout_4->addWidget(btnClearAll, 1, 2, 1, 1);
 
-        butMultiply = new QPushButton(centralwidget);
-        butMultiply->setObjectName("butMultiply");
-        sizePolicy.setHeightForWidth(butMultiply->sizePolicy().hasHeightForWidth());
-        butMultiply->setSizePolicy(sizePolicy);
+        btnNum5 = new QPushButton(centralwidget);
+        btnNum5->setObjectName("btnNum5");
+        sizePolicy.setHeightForWidth(btnNum5->sizePolicy().hasHeightForWidth());
+        btnNum5->setSizePolicy(sizePolicy);
+        btnNum5->setFont(font);
 
-        gridLayout_2->addWidget(butMultiply, 3, 3, 1, 1);
+        gridLayout_4->addWidget(btnNum5, 4, 1, 1, 1);
+
+        btnEqual = new QPushButton(centralwidget);
+        btnEqual->setObjectName("btnEqual");
+        sizePolicy.setHeightForWidth(btnEqual->sizePolicy().hasHeightForWidth());
+        btnEqual->setSizePolicy(sizePolicy);
+        btnEqual->setFont(font);
+
+        gridLayout_4->addWidget(btnEqual, 6, 3, 1, 1);
+
+        btnNum9 = new QPushButton(centralwidget);
+        btnNum9->setObjectName("btnNum9");
+        sizePolicy.setHeightForWidth(btnNum9->sizePolicy().hasHeightForWidth());
+        btnNum9->setSizePolicy(sizePolicy);
+        btnNum9->setFont(font);
+
+        gridLayout_4->addWidget(btnNum9, 3, 2, 1, 1);
+
+        btnSquare = new QPushButton(centralwidget);
+        btnSquare->setObjectName("btnSquare");
+        sizePolicy.setHeightForWidth(btnSquare->sizePolicy().hasHeightForWidth());
+        btnSquare->setSizePolicy(sizePolicy);
+        btnSquare->setFont(font);
+
+        gridLayout_4->addWidget(btnSquare, 2, 1, 1, 1);
+
+        btnNum7 = new QPushButton(centralwidget);
+        btnNum7->setObjectName("btnNum7");
+        sizePolicy.setHeightForWidth(btnNum7->sizePolicy().hasHeightForWidth());
+        btnNum7->setSizePolicy(sizePolicy);
+        btnNum7->setFont(font);
+
+        gridLayout_4->addWidget(btnNum7, 3, 0, 1, 1);
+
+        btnDivide = new QPushButton(centralwidget);
+        btnDivide->setObjectName("btnDivide");
+        sizePolicy.setHeightForWidth(btnDivide->sizePolicy().hasHeightForWidth());
+        btnDivide->setSizePolicy(sizePolicy);
+        btnDivide->setFont(font);
+
+        gridLayout_4->addWidget(btnDivide, 2, 3, 1, 1);
+
+        btnMinus = new QPushButton(centralwidget);
+        btnMinus->setObjectName("btnMinus");
+        sizePolicy.setHeightForWidth(btnMinus->sizePolicy().hasHeightForWidth());
+        btnMinus->setSizePolicy(sizePolicy);
+        btnMinus->setFont(font);
+
+        gridLayout_4->addWidget(btnMinus, 4, 3, 1, 1);
+
+        btnNum2 = new QPushButton(centralwidget);
+        btnNum2->setObjectName("btnNum2");
+        sizePolicy.setHeightForWidth(btnNum2->sizePolicy().hasHeightForWidth());
+        btnNum2->setSizePolicy(sizePolicy);
+        btnNum2->setFont(font);
+
+        gridLayout_4->addWidget(btnNum2, 5, 1, 1, 1);
+
+        btnSqrt = new QPushButton(centralwidget);
+        btnSqrt->setObjectName("btnSqrt");
+        sizePolicy.setHeightForWidth(btnSqrt->sizePolicy().hasHeightForWidth());
+        btnSqrt->setSizePolicy(sizePolicy);
+        btnSqrt->setFont(font);
+
+        gridLayout_4->addWidget(btnSqrt, 2, 2, 1, 1);
 
         display = new QLineEdit(centralwidget);
         display->setObjectName("display");
-        QSizePolicy sizePolicy1(QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Preferred);
+        QSizePolicy sizePolicy1(QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Preferred);
         sizePolicy1.setHorizontalStretch(0);
         sizePolicy1.setVerticalStretch(0);
         sizePolicy1.setHeightForWidth(display->sizePolicy().hasHeightForWidth());
         display->setSizePolicy(sizePolicy1);
         display->setAlignment(Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter);
 
-        gridLayout_2->addWidget(display, 0, 0, 1, 4);
+        gridLayout_4->addWidget(display, 0, 0, 1, 4);
 
-        butDelete = new QPushButton(centralwidget);
-        butDelete->setObjectName("butDelete");
-        sizePolicy.setHeightForWidth(butDelete->sizePolicy().hasHeightForWidth());
-        butDelete->setSizePolicy(sizePolicy);
+        btnPoint = new QPushButton(centralwidget);
+        btnPoint->setObjectName("btnPoint");
+        sizePolicy.setHeightForWidth(btnPoint->sizePolicy().hasHeightForWidth());
+        btnPoint->setSizePolicy(sizePolicy);
+        btnPoint->setFont(font);
 
-        gridLayout_2->addWidget(butDelete, 1, 3, 1, 1);
+        gridLayout_4->addWidget(btnPoint, 6, 2, 1, 1);
 
-        butMinus = new QPushButton(centralwidget);
-        butMinus->setObjectName("butMinus");
-        sizePolicy.setHeightForWidth(butMinus->sizePolicy().hasHeightForWidth());
-        butMinus->setSizePolicy(sizePolicy);
+        btnDel = new QPushButton(centralwidget);
+        btnDel->setObjectName("btnDel");
+        sizePolicy.setHeightForWidth(btnDel->sizePolicy().hasHeightForWidth());
+        btnDel->setSizePolicy(sizePolicy);
+        btnDel->setFont(font);
 
-        gridLayout_2->addWidget(butMinus, 6, 0, 1, 1);
+        gridLayout_4->addWidget(btnDel, 1, 3, 1, 1);
 
-        but8 = new QPushButton(centralwidget);
-        but8->setObjectName("but8");
-        sizePolicy.setHeightForWidth(but8->sizePolicy().hasHeightForWidth());
-        but8->setSizePolicy(sizePolicy);
+        btnSign = new QPushButton(centralwidget);
+        btnSign->setObjectName("btnSign");
+        sizePolicy.setHeightForWidth(btnSign->sizePolicy().hasHeightForWidth());
+        btnSign->setSizePolicy(sizePolicy);
+        btnSign->setFont(font);
 
-        gridLayout_2->addWidget(but8, 3, 1, 1, 1);
+        gridLayout_4->addWidget(btnSign, 6, 0, 1, 1);
 
-        butEqual = new QPushButton(centralwidget);
-        butEqual->setObjectName("butEqual");
-        sizePolicy.setHeightForWidth(butEqual->sizePolicy().hasHeightForWidth());
-        butEqual->setSizePolicy(sizePolicy);
+        btnNum8 = new QPushButton(centralwidget);
+        btnNum8->setObjectName("btnNum8");
+        sizePolicy.setHeightForWidth(btnNum8->sizePolicy().hasHeightForWidth());
+        btnNum8->setSizePolicy(sizePolicy);
+        btnNum8->setFont(font);
 
-        gridLayout_2->addWidget(butEqual, 6, 3, 1, 1);
+        gridLayout_4->addWidget(btnNum8, 3, 1, 1, 1);
 
-        butCE = new QPushButton(centralwidget);
-        butCE->setObjectName("butCE");
-        sizePolicy.setHeightForWidth(butCE->sizePolicy().hasHeightForWidth());
-        butCE->setSizePolicy(sizePolicy);
+        btnNum1 = new QPushButton(centralwidget);
+        btnNum1->setObjectName("btnNum1");
+        sizePolicy.setHeightForWidth(btnNum1->sizePolicy().hasHeightForWidth());
+        btnNum1->setSizePolicy(sizePolicy);
+        btnNum1->setFont(font);
 
-        gridLayout_2->addWidget(butCE, 1, 1, 1, 1);
+        gridLayout_4->addWidget(btnNum1, 5, 0, 1, 1);
 
-        but0 = new QPushButton(centralwidget);
-        but0->setObjectName("but0");
-        sizePolicy.setHeightForWidth(but0->sizePolicy().hasHeightForWidth());
-        but0->setSizePolicy(sizePolicy);
+        btnNum0 = new QPushButton(centralwidget);
+        btnNum0->setObjectName("btnNum0");
+        sizePolicy.setHeightForWidth(btnNum0->sizePolicy().hasHeightForWidth());
+        btnNum0->setSizePolicy(sizePolicy);
+        btnNum0->setFont(font);
 
-        gridLayout_2->addWidget(but0, 6, 1, 1, 1);
+        gridLayout_4->addWidget(btnNum0, 6, 1, 1, 1);
 
-        butSubtract = new QPushButton(centralwidget);
-        butSubtract->setObjectName("butSubtract");
-        sizePolicy.setHeightForWidth(butSubtract->sizePolicy().hasHeightForWidth());
-        butSubtract->setSizePolicy(sizePolicy);
+        btnNum3 = new QPushButton(centralwidget);
+        btnNum3->setObjectName("btnNum3");
+        sizePolicy.setHeightForWidth(btnNum3->sizePolicy().hasHeightForWidth());
+        btnNum3->setSizePolicy(sizePolicy);
+        btnNum3->setFont(font);
 
-        gridLayout_2->addWidget(butSubtract, 4, 3, 1, 1);
+        gridLayout_4->addWidget(btnNum3, 5, 2, 1, 1);
 
-        butDivide = new QPushButton(centralwidget);
-        butDivide->setObjectName("butDivide");
-        sizePolicy.setHeightForWidth(butDivide->sizePolicy().hasHeightForWidth());
-        butDivide->setSizePolicy(sizePolicy);
+        btnMultiple = new QPushButton(centralwidget);
+        btnMultiple->setObjectName("btnMultiple");
+        sizePolicy.setHeightForWidth(btnMultiple->sizePolicy().hasHeightForWidth());
+        btnMultiple->setSizePolicy(sizePolicy);
+        btnMultiple->setFont(font);
 
-        gridLayout_2->addWidget(butDivide, 2, 3, 1, 1);
+        gridLayout_4->addWidget(btnMultiple, 3, 3, 1, 1);
 
-        butC = new QPushButton(centralwidget);
-        butC->setObjectName("butC");
-        sizePolicy.setHeightForWidth(butC->sizePolicy().hasHeightForWidth());
-        butC->setSizePolicy(sizePolicy);
+        btnPercentage = new QPushButton(centralwidget);
+        btnPercentage->setObjectName("btnPercentage");
+        sizePolicy.setHeightForWidth(btnPercentage->sizePolicy().hasHeightForWidth());
+        btnPercentage->setSizePolicy(sizePolicy);
+        btnPercentage->setFont(font);
 
-        gridLayout_2->addWidget(butC, 1, 2, 1, 1);
-
-        but7 = new QPushButton(centralwidget);
-        but7->setObjectName("but7");
-        sizePolicy.setHeightForWidth(but7->sizePolicy().hasHeightForWidth());
-        but7->setSizePolicy(sizePolicy);
-
-        gridLayout_2->addWidget(but7, 3, 0, 1, 1);
-
-        but1 = new QPushButton(centralwidget);
-        but1->setObjectName("but1");
-        sizePolicy.setHeightForWidth(but1->sizePolicy().hasHeightForWidth());
-        but1->setSizePolicy(sizePolicy);
-
-        gridLayout_2->addWidget(but1, 5, 0, 1, 1);
-
-        butSquare = new QPushButton(centralwidget);
-        butSquare->setObjectName("butSquare");
-        sizePolicy.setHeightForWidth(butSquare->sizePolicy().hasHeightForWidth());
-        butSquare->setSizePolicy(sizePolicy);
-
-        gridLayout_2->addWidget(butSquare, 2, 1, 1, 1);
-
-        butPercent = new QPushButton(centralwidget);
-        butPercent->setObjectName("butPercent");
-        sizePolicy.setHeightForWidth(butPercent->sizePolicy().hasHeightForWidth());
-        butPercent->setSizePolicy(sizePolicy);
-
-        gridLayout_2->addWidget(butPercent, 1, 0, 1, 1);
-
-        butSquareRoot = new QPushButton(centralwidget);
-        butSquareRoot->setObjectName("butSquareRoot");
-        sizePolicy.setHeightForWidth(butSquareRoot->sizePolicy().hasHeightForWidth());
-        butSquareRoot->setSizePolicy(sizePolicy);
-
-        gridLayout_2->addWidget(butSquareRoot, 2, 2, 1, 1);
-
-        butPoint = new QPushButton(centralwidget);
-        butPoint->setObjectName("butPoint");
-        sizePolicy.setHeightForWidth(butPoint->sizePolicy().hasHeightForWidth());
-        butPoint->setSizePolicy(sizePolicy);
-
-        gridLayout_2->addWidget(butPoint, 6, 2, 1, 1);
-
-        but2 = new QPushButton(centralwidget);
-        but2->setObjectName("but2");
-        sizePolicy.setHeightForWidth(but2->sizePolicy().hasHeightForWidth());
-        but2->setSizePolicy(sizePolicy);
-
-        gridLayout_2->addWidget(but2, 5, 1, 1, 1);
-
-        butPlus = new QPushButton(centralwidget);
-        butPlus->setObjectName("butPlus");
-        sizePolicy.setHeightForWidth(butPlus->sizePolicy().hasHeightForWidth());
-        butPlus->setSizePolicy(sizePolicy);
-
-        gridLayout_2->addWidget(butPlus, 5, 3, 1, 1);
+        gridLayout_4->addWidget(btnPercentage, 1, 0, 1, 1);
 
 
-        verticalLayout->addLayout(gridLayout_2);
+        verticalLayout->addLayout(gridLayout_4);
 
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 698, 22));
+        menubar->setGeometry(QRect(0, 0, 561, 22));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
@@ -271,31 +297,31 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        butInverse->setText(QCoreApplication::translate("MainWindow", "1/x", nullptr));
-        but4->setText(QCoreApplication::translate("MainWindow", "4", nullptr));
-        but3->setText(QCoreApplication::translate("MainWindow", "3", nullptr));
-        but5->setText(QCoreApplication::translate("MainWindow", "5", nullptr));
-        but6->setText(QCoreApplication::translate("MainWindow", "6", nullptr));
-        but9->setText(QCoreApplication::translate("MainWindow", "9", nullptr));
-        butMultiply->setText(QCoreApplication::translate("MainWindow", "\303\227", nullptr));
+        btnNum6->setText(QCoreApplication::translate("MainWindow", "6", nullptr));
+        btnPlus->setText(QCoreApplication::translate("MainWindow", "+", nullptr));
+        btnInverse->setText(QCoreApplication::translate("MainWindow", "1/x", nullptr));
+        btnClear->setText(QCoreApplication::translate("MainWindow", "CE", nullptr));
+        btnNum4->setText(QCoreApplication::translate("MainWindow", "4", nullptr));
+        btnClearAll->setText(QCoreApplication::translate("MainWindow", "C", nullptr));
+        btnNum5->setText(QCoreApplication::translate("MainWindow", "5", nullptr));
+        btnEqual->setText(QCoreApplication::translate("MainWindow", "=", nullptr));
+        btnNum9->setText(QCoreApplication::translate("MainWindow", "9", nullptr));
+        btnSquare->setText(QCoreApplication::translate("MainWindow", "x^2", nullptr));
+        btnNum7->setText(QCoreApplication::translate("MainWindow", "7", nullptr));
+        btnDivide->setText(QCoreApplication::translate("MainWindow", "\303\267", nullptr));
+        btnMinus->setText(QCoreApplication::translate("MainWindow", "-", nullptr));
+        btnNum2->setText(QCoreApplication::translate("MainWindow", "2", nullptr));
+        btnSqrt->setText(QCoreApplication::translate("MainWindow", "\342\210\232", nullptr));
         display->setPlaceholderText(QCoreApplication::translate("MainWindow", "0", nullptr));
-        butDelete->setText(QCoreApplication::translate("MainWindow", "\342\214\253", nullptr));
-        butMinus->setText(QCoreApplication::translate("MainWindow", "\302\261", nullptr));
-        but8->setText(QCoreApplication::translate("MainWindow", "8", nullptr));
-        butEqual->setText(QCoreApplication::translate("MainWindow", "=", nullptr));
-        butCE->setText(QCoreApplication::translate("MainWindow", "CE", nullptr));
-        but0->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
-        butSubtract->setText(QCoreApplication::translate("MainWindow", "-", nullptr));
-        butDivide->setText(QCoreApplication::translate("MainWindow", "\342\236\227", nullptr));
-        butC->setText(QCoreApplication::translate("MainWindow", "C", nullptr));
-        but7->setText(QCoreApplication::translate("MainWindow", "7", nullptr));
-        but1->setText(QCoreApplication::translate("MainWindow", "1", nullptr));
-        butSquare->setText(QCoreApplication::translate("MainWindow", "x^2", nullptr));
-        butPercent->setText(QCoreApplication::translate("MainWindow", "%", nullptr));
-        butSquareRoot->setText(QCoreApplication::translate("MainWindow", "\342\210\232", nullptr));
-        butPoint->setText(QCoreApplication::translate("MainWindow", ".", nullptr));
-        but2->setText(QCoreApplication::translate("MainWindow", "2", nullptr));
-        butPlus->setText(QCoreApplication::translate("MainWindow", "+", nullptr));
+        btnPoint->setText(QCoreApplication::translate("MainWindow", ".", nullptr));
+        btnDel->setText(QCoreApplication::translate("MainWindow", "\342\214\253", nullptr));
+        btnSign->setText(QCoreApplication::translate("MainWindow", "+/-", nullptr));
+        btnNum8->setText(QCoreApplication::translate("MainWindow", "8", nullptr));
+        btnNum1->setText(QCoreApplication::translate("MainWindow", "1", nullptr));
+        btnNum0->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
+        btnNum3->setText(QCoreApplication::translate("MainWindow", "3", nullptr));
+        btnMultiple->setText(QCoreApplication::translate("MainWindow", "\303\227", nullptr));
+        btnPercentage->setText(QCoreApplication::translate("MainWindow", "%", nullptr));
     } // retranslateUi
 
 };

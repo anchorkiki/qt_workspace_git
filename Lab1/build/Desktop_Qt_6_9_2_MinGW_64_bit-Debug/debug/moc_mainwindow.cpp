@@ -7,6 +7,7 @@
 *****************************************************************************/
 
 #include "../../../mainwindow.h"
+#include <QtGui/qtextcursor.h>
 #include <QtCore/qmetatype.h>
 
 #include <QtCore/qtmochelpers.h>
@@ -42,10 +43,16 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
         "btnNumClicked",
         "",
         "btnBinaryOperatorClicked",
-        "on_butPoint_clicked",
-        "on_butDelete_clicked",
-        "on_butC_clicked",
-        "on_butEqual_clicked"
+        "btnUnaryOperatorClicked",
+        "on_btnPeriod_clicked",
+        "on_btnDel_clicked",
+        "on_btnClear_clicked",
+        "on_btnEqual_clicked",
+        "on_btnSign_clicked",
+        "on_btnClearAll_clicked",
+        "keyPressEvent",
+        "QKeyEvent*",
+        "event"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -53,14 +60,24 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
         QtMocHelpers::SlotData<void()>(1, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'btnBinaryOperatorClicked'
         QtMocHelpers::SlotData<void()>(3, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_butPoint_clicked'
+        // Slot 'btnUnaryOperatorClicked'
         QtMocHelpers::SlotData<void()>(4, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_butDelete_clicked'
+        // Slot 'on_btnPeriod_clicked'
         QtMocHelpers::SlotData<void()>(5, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_butC_clicked'
+        // Slot 'on_btnDel_clicked'
         QtMocHelpers::SlotData<void()>(6, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_butEqual_clicked'
+        // Slot 'on_btnClear_clicked'
         QtMocHelpers::SlotData<void()>(7, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_btnEqual_clicked'
+        QtMocHelpers::SlotData<void()>(8, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_btnSign_clicked'
+        QtMocHelpers::SlotData<void()>(9, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_btnClearAll_clicked'
+        QtMocHelpers::SlotData<void()>(10, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'keyPressEvent'
+        QtMocHelpers::SlotData<void(QKeyEvent *)>(11, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { 0x80000000 | 12, 13 },
+        }}),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -86,14 +103,17 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         switch (_id) {
         case 0: _t->btnNumClicked(); break;
         case 1: _t->btnBinaryOperatorClicked(); break;
-        case 2: _t->on_butPoint_clicked(); break;
-        case 3: _t->on_butDelete_clicked(); break;
-        case 4: _t->on_butC_clicked(); break;
-        case 5: _t->on_butEqual_clicked(); break;
+        case 2: _t->btnUnaryOperatorClicked(); break;
+        case 3: _t->on_btnPeriod_clicked(); break;
+        case 4: _t->on_btnDel_clicked(); break;
+        case 5: _t->on_btnClear_clicked(); break;
+        case 6: _t->on_btnEqual_clicked(); break;
+        case 7: _t->on_btnSign_clicked(); break;
+        case 8: _t->on_btnClearAll_clicked(); break;
+        case 9: _t->keyPressEvent((*reinterpret_cast< std::add_pointer_t<QKeyEvent*>>(_a[1]))); break;
         default: ;
         }
     }
-    (void)_a;
 }
 
 const QMetaObject *MainWindow::metaObject() const
@@ -115,14 +135,14 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 10)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 10;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 6)
+        if (_id < 10)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 6;
+        _id -= 10;
     }
     return _id;
 }
