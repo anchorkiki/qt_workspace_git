@@ -5,5 +5,9 @@
         <file>img/oringe.png</file>
         <file>img/oringes.png</file>
         <file>mainWidget.qss</file>
+        <file>img/extend.png</file>
+        <file>img/four.png</file>
+        <file>img/single.png</file>
+        <file>img/setting.png</file>
     </qresource>
 </RCC>

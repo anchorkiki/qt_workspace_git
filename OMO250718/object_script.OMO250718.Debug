@@ -12,6 +12,9 @@ INPUT(
 ./debug\envidatamodel.o
 ./debug\opencamera.o
 ./debug\encodetoh264.o
+./debug\playthread.o
+./debug\vedioplayer.o
+./debug\trancecode.o
 ./debug\qrc_resource.o
 ./debug\moc_mainwindow.o
 ./debug\moc_settingwidget.o
@@ -20,4 +23,7 @@ INPUT(
 ./debug\moc_mainwidget.o
 ./debug\moc_barchart.o
 ./debug\moc_opencamera.o
+./debug\moc_playthread.o
+./debug\moc_vedioplayer.o
+./debug\moc_trancecode.o
 );

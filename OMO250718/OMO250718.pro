@@ -37,7 +37,10 @@ SOURCES += \
     CONTROLLER/envidatacontroller.cpp \
     MODEL/envidatamodel.cpp \
     THREAD/opencamera.cpp \
-    TOOL/encodetoh264.cpp
+    TOOL/encodetoh264.cpp \
+    THREAD/playthread.cpp \
+    VIEW/vedioplayer.cpp \
+    TOOL/trancecode.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -51,7 +54,10 @@ HEADERS += \
     MODEL/envidatamodel.h \
     VIEW/barchart.h \
     THREAD/opencamera.h \
-    TOOL/encodetoh264.h
+    TOOL/encodetoh264.h \
+    THREAD/playthread.h \
+    VIEW/vedioplayer.h \
+    TOOL/trancecode.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

@@ -12,6 +12,9 @@ INPUT(
 ./release\envidatamodel.o
 ./release\opencamera.o
 ./release\encodetoh264.o
+./release\playthread.o
+./release\vedioplayer.o
+./release\trancecode.o
 ./release\qrc_resource.o
 ./release\moc_mainwindow.o
 ./release\moc_settingwidget.o
@@ -20,4 +23,7 @@ INPUT(
 ./release\moc_mainwidget.o
 ./release\moc_barchart.o
 ./release\moc_opencamera.o
+./release\moc_playthread.o
+./release\moc_vedioplayer.o
+./release\moc_trancecode.o
 );

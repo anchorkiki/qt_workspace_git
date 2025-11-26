@@ -13,10 +13,20 @@ MainWidget::MainWidget(QWidget *parent) : QWidget(parent)
     this->temperature = 0;
     this->humidity = 0;
 
+    this->isFourCameraMode = true; // 默认是四摄像头模式
+    this->currentSingleCameraIndex = 0; // 默认显示第一个摄像头
+
+    this->videoPlayWidget = nullptr;
+
+    qDebug()<<"initWindow";
     this->initWindow();
+    qDebug()<<"initUi";
     this->initUi();
+    qDebug()<<"initConnect";
     this->initConnect();
+    qDebug()<<"initData";
     this->initData();
+    qDebug()<<"initQss";
     this->initQss();
 }
 
@@ -44,21 +54,21 @@ void MainWidget::initUi()
     layoutMain->setSpacing(15); // 总布局间距
 
     // ===================================================
-    // 垂直布局A（上方数据卡片容器，中间折线图，下方柱状图）
+    // 垂直布局A
     layoutA = new QVBoxLayout();
-    layoutA->setSpacing(10);  // 布局A间距
-    layoutA->setContentsMargins(5, 5, 5, 5); // 布局A内边距
+    layoutA->setSpacing(10);
+    layoutA->setContentsMargins(5, 5, 5, 5);
 
     // --------------------------
-    // 新增：数据卡片大容器（包含三个小卡片）
+    // 上部分：数据Widget（包含温度湿度光照）
     QWidget *cardsContainer = new QWidget(this);
-    cardsContainer->setProperty("class", "CardsContainer"); // 可在QSS中定义容器样式
-    QVBoxLayout *cardsLayout = new QVBoxLayout(cardsContainer); // 容器内用垂直布局
-    cardsLayout->setSpacing(8); // 三个小卡片之间的间距
-    cardsLayout->setContentsMargins(10, 10, 10, 10); // 大容器的内边距（与小卡片间隔）
+    cardsContainer->setProperty("class", "CardsContainer");
+    QVBoxLayout *cardsLayout = new QVBoxLayout(cardsContainer);
+    cardsLayout->setSpacing(8);
+    cardsLayout->setContentsMargins(10, 10, 10, 10); // 数据Widgett的内边距（与小卡片间隔）
 
-    // 温度卡片（放入大容器）
-    QWidget *tempCard = new QWidget(cardsContainer); // 父对象设为大容器
+    // 温度
+    QWidget *tempCard = new QWidget(cardsContainer);
     tempCard->setProperty("class", "Card");
     QHBoxLayout *tempCardLayout = new QHBoxLayout(tempCard);
     tempCardLayout->setContentsMargins(5, 5, 5, 5);
@@ -69,8 +79,8 @@ void MainWidget::initUi()
     tempCardLayout->addStretch();
     tempCardLayout->addWidget(temperatureLabel);
 
-    // 湿度卡片（放入大容器）
-    QWidget *humidCard = new QWidget(cardsContainer); // 父对象设为大容器
+    // 湿度
+    QWidget *humidCard = new QWidget(cardsContainer);
     humidCard->setProperty("class", "Card");
     QHBoxLayout *humidCardLayout = new QHBoxLayout(humidCard);
     humidCardLayout->setContentsMargins(5, 5, 5, 5);
@@ -81,8 +91,8 @@ void MainWidget::initUi()
     humidCardLayout->addStretch();
     humidCardLayout->addWidget(humidityLabel);
 
-    // 光照卡片（放入大容器）
-    QWidget *lightCard = new QWidget(cardsContainer); // 父对象设为大容器
+    // 光照
+    QWidget *lightCard = new QWidget(cardsContainer);
     lightCard->setProperty("class", "Card");
     QHBoxLayout *lightCardLayout = new QHBoxLayout(lightCard);
     lightCardLayout->setContentsMargins(5, 5, 5, 5);
@@ -93,22 +103,23 @@ void MainWidget::initUi()
     lightCardLayout->addStretch();
     lightCardLayout->addWidget(lightLabel);
 
-    // 将三个小卡片添加到大容器的布局中
+    // 添加到数据Widget的布局
     cardsLayout->addWidget(tempCard);
     cardsLayout->addWidget(humidCard);
     cardsLayout->addWidget(lightCard);
 
     // --------------------------
-    // 折线图（使用QSS的.ChartContainer样式）
+    // 中部：折线图
     this->lineChart = new LineChart();
     this->lineChart->setProperty("class", "ChartContainer");
     this->lineChart->setParent(this);
 
-    // 柱状图（使用QSS的.ChartContainer样式）
+    // --------------------------
+    // 下部：柱状图
     this->m_barChart = new BarChart(this);
     this->m_barChart->setProperty("class", "ChartContainer");
 
-    // 布局A添加：大容器、折线图、柱状图
+    // 添加到布局A
     layoutA->addWidget(cardsContainer, 1);
     layoutA->addWidget(this->lineChart, 3);
     layoutA->addWidget(m_barChart, 3);
@@ -119,51 +130,163 @@ void MainWidget::initUi()
     layoutB->setContentsMargins(5, 5, 5, 5);
     layoutB->setSpacing(5);
 
-    // 摄像头画面
-    this->lb_camera = new QLabel(this);
-    this->lb_camera->setProperty("class", "CameraDisplay");
-    this->lb_camera->setStyleSheet("background-color: black; color: white; text-align: center;");
-    this->lb_camera->setAlignment(Qt::AlignCenter);
-    this->lb_camera->setMinimumSize(640, 480);
+    // --------------------------
+    // 上部：标题标签
+    this->lb_title = new QLabel("小蔡监控系统", this);
+    lb_title->setProperty("class", "LayoutBTitle");
+    lb_title->setAlignment(Qt::AlignCenter); // 居中
 
-    // 设置按钮
-    this->bt_settingWidget = new QPushButton("设置", this);
+    // --------------------------
+    // 中部：四个摄像头
+    QWidget* cameraContainer = new QWidget(this);
+    cameraContainer->setProperty("class", "CameraContainer");
+    QGridLayout* cameraGrid = new QGridLayout(cameraContainer);
+    cameraGrid->setSpacing(2);
+    cameraGrid->setContentsMargins(0, 0, 0, 0);
 
-    layoutB->addWidget(bt_settingWidget);
-    layoutB->addWidget(this->lb_camera);
+    // 四个摄像头
+    this->lb_camera = new QLabel(cameraContainer);
+    this->lb_camera2 = new QLabel(cameraContainer);
+    this->lb_camera3 = new QLabel(cameraContainer);
+    this->lb_camera4 = new QLabel(cameraContainer);
+
+    // 设置摄像头标签样式
+    auto setCameraLabelStyle = [this](QLabel* label) {
+        label->setProperty("class", "CameraDisplay");
+        label->setStyleSheet("background-color: black; color: white; text-align: center;");
+        label->setAlignment(Qt::AlignCenter);
+        label->setMinimumSize(320, 240);
+    };
+    setCameraLabelStyle(lb_camera);
+    setCameraLabelStyle(lb_camera2);
+    setCameraLabelStyle(lb_camera3);
+    setCameraLabelStyle(lb_camera4);
+
+    // 添加到田字布局布局
+    cameraGrid->addWidget(lb_camera, 0, 0);
+    cameraGrid->addWidget(lb_camera2, 0, 1);
+    cameraGrid->addWidget(lb_camera3, 1, 0);
+    cameraGrid->addWidget(lb_camera4, 1, 1);
+
+    // 设置网格拉伸比例
+    cameraGrid->setRowStretch(0, 1);
+    cameraGrid->setRowStretch(1, 1);
+    cameraGrid->setColumnStretch(0, 1);
+    cameraGrid->setColumnStretch(1, 1);
+
+    // --------------------------
+    // 下部：单/四通道切换，设置界面按钮，回放（登录）按钮
+    QWidget* bottomContainer = new QWidget(this);
+    bottomContainer->setProperty("class", "LayoutBBottom");
+    QHBoxLayout* bottomLayout = new QHBoxLayout(bottomContainer);
+    bottomLayout->setContentsMargins(5, 5, 5, 5);
+    bottomLayout->setSpacing(10);
+
+    // 下部左侧
+    this->lb_single = new QPushButton(this);
+    this->lb_four = new QPushButton(this);
+    this->lb_setting = new QPushButton(this);
+    // 下部右侧
+    this->lb_extend = new QPushButton(this);
+
+    lb_single->setProperty("class", "BottomImageButton");
+    lb_four->setProperty("class", "BottomImageButton");
+    lb_setting->setProperty("class", "BottomImageButton");
+    lb_extend->setProperty("class", "BottomExtendButton");
+
+
+    // 加载图片到标签
+    lb_single->setMinimumSize(60, 60);
+    lb_four->setMinimumSize(60, 60);
+    lb_setting->setMinimumSize(60, 60);
+    lb_extend->setMinimumSize(60, 60);
+
+    // 加载图片
+    QPixmap singlePix(":/img/single.png");
+    QPixmap fourPix(":/img/four.png");
+    QPixmap settingPix(":/img/setting.png");
+    QPixmap extendPix(":/img/extend.png");
+
+    // 图片设置为按钮图标（自动缩放）
+    if (!singlePix.isNull()) {
+        lb_single->setIcon(QIcon(singlePix));
+        lb_single->setIconSize(lb_single->size());  // 图标大小适应按钮大小
+    }
+    if (!fourPix.isNull()) {
+        lb_four->setIcon(QIcon(fourPix));
+        lb_four->setIconSize(lb_four->size());
+    }
+    if (!settingPix.isNull()) {
+        lb_setting->setIcon(QIcon(settingPix));
+        lb_setting->setIconSize(lb_setting->size());
+    }
+    if (!extendPix.isNull()) {
+        lb_extend->setIcon(QIcon(extendPix));
+        lb_extend->setIconSize(lb_extend->size());
+    }
+
+    // 按钮样式设置（去掉边框、背景，使其看起来像标签）
+    auto setButtonStyle = [](QPushButton* btn) {
+        btn->setStyleSheet("border: none; background: transparent;");  // 无边框、透明背景
+        btn->setCursor(Qt::PointingHandCursor);  // 鼠标悬停显示手型
+    };
+    setButtonStyle(lb_single);
+    setButtonStyle(lb_four);
+    setButtonStyle(lb_setting);
+    setButtonStyle(lb_extend);
+
+    // 添加到水平布局
+    bottomLayout->addWidget(lb_single);
+    bottomLayout->addWidget(lb_four);
+    bottomLayout->addWidget(lb_setting);
+    bottomLayout->addStretch(); // 中间空白
+    bottomLayout->addWidget(lb_extend);
+
+    // --------------------------
+    // 布局B组装：标题，摄像头，下部按钮
+    layoutB->addWidget(lb_title, 1);
+    layoutB->addWidget(cameraContainer, 8);
+    layoutB->addWidget(bottomContainer, 1);
 
     // ===================================================
-    // 垂直布局C（预留布局）
+    // 垂直布局C
     layoutC = new QVBoxLayout();
     layoutC->setContentsMargins(5, 5, 5, 5);
     layoutC->setSpacing(10);
 
     // 总布局添加三个垂直布局
-    layoutMain->addLayout(layoutA, 3);
-    layoutMain->addLayout(layoutB, 4);
-    layoutMain->addLayout(layoutC, 3);
+    layoutMain->addLayout(layoutA, 2);
+    layoutMain->addLayout(layoutB, 5);
+    layoutMain->addLayout(layoutC, 2);
 
     this->setLayout(layoutMain);
 }
 
 void MainWidget::initConnect()
 {
-    connect(this->bt_settingWidget, SIGNAL(clicked()), this, SLOT(showSettingWidget()));
+    // 设置界面设置完成，发送设置参数
     connect(settingWidget, &SettingWidget::settingCompleted, this, &MainWidget::onSettingCompleted);
+    // 读取温湿度数据，绘制折线图
     connect(readDataTimer, SIGNAL(timeout()), this, SLOT(readSerialData()));
+    // 单/四通道
+    connect(lb_single, &QPushButton::clicked, this, &MainWidget::onSingleClicked);
+    connect(lb_four, &QPushButton::clicked, this, &MainWidget::onFourClicked);
+    // 打开设置界面
+    connect(lb_setting, &QPushButton::clicked, this, &MainWidget::showSettingWidget);
+    // 打开回放视频界面
+    connect(lb_extend, SIGNAL(clicked()), this, SLOT(showVideoPlayerWidget()));
 }
 
 void MainWidget::initData()
 {
-    // 视图层定义三个空容器，用于接收数据
     QList<QString> dates;       // 日期列表
     QList<double> maxTemps;     // 最高温列表
     QList<double> minTemps;     // 最低温列表
 
-    // 调用Controller，通过引用填充数据
+    // 填充数据
     EnviDataController::getInstance()->getLast7DaysTempData(dates, maxTemps, minTemps);
 
-    // 直接使用填充好的数据更新柱状图
+    // 更新柱状图
     m_barChart->updateData(dates, maxTemps, minTemps);
 }
 
@@ -452,7 +575,7 @@ void MainWidget::showEvent(QShowEvent *event)
 
         if(checkResult != 1){
             qDebug() << "配置异常，显示设置界面";
-            // 使用单次定时器延迟显示设置界面，避免递归问题
+            // 使用单次定时器延迟显示设置界面
             QTimer::singleShot(100, this, &MainWidget::showSettingWidget);
         }
         else{
@@ -467,4 +590,140 @@ void MainWidget::showEvent(QShowEvent *event)
             this->startCameraAuto();
         }
     }
+}
+
+void MainWidget::updateCameraLayout()
+{
+    // 获取摄像头容器的布局
+    QGridLayout* cameraGrid = qobject_cast<QGridLayout*>(lb_camera->parentWidget()->layout());
+    if (!cameraGrid) return;
+
+    // 先隐藏所有摄像头标签
+    lb_camera->hide();
+    lb_camera2->hide();
+    lb_camera3->hide();
+    lb_camera4->hide();
+
+    if (isFourCameraMode) {
+        // 田字布局
+        // 重新添加所有摄像头到网格并显示
+        cameraGrid->addWidget(lb_camera, 0, 0);
+        cameraGrid->addWidget(lb_camera2, 0, 1);
+        cameraGrid->addWidget(lb_camera3, 1, 0);
+        cameraGrid->addWidget(lb_camera4, 1, 1);
+
+        // 显示所有摄像头
+        lb_camera->show();
+        lb_camera2->show();
+        lb_camera3->show();
+        lb_camera4->show();
+
+        // 恢复网格比例
+        cameraGrid->setRowStretch(0, 1);
+        cameraGrid->setRowStretch(1, 1);
+        cameraGrid->setColumnStretch(0, 1);
+        cameraGrid->setColumnStretch(1, 1);
+    }
+    else {
+        // 单摄像头模式
+        // 根据当前索引显示对应的摄像头
+        QLabel* currentCamera = nullptr;
+        switch (currentSingleCameraIndex) {
+            case 0:
+                currentCamera = lb_camera;
+                break;
+            case 1:
+                currentCamera = lb_camera2;
+                break;
+            case 2:
+                currentCamera = lb_camera3;
+                break;
+            case 3:
+                currentCamera = lb_camera4;
+                break;
+            default:
+                currentCamera = lb_camera;
+        }
+
+        // 将当前摄像头添加到网格并占据整个空间
+        cameraGrid->addWidget(currentCamera, 0, 0, 2, 2); // 跨2行2列
+        currentCamera->show();
+
+        // 设置网格比例
+        cameraGrid->setRowStretch(0, 1);
+        cameraGrid->setRowStretch(1, 1);
+        cameraGrid->setColumnStretch(0, 1);
+        cameraGrid->setColumnStretch(1, 1);
+    }
+}
+
+void MainWidget::onSingleClicked()
+{
+    if (isFourCameraMode) {
+        // 从四摄像头模式切换到单摄像头模式
+        isFourCameraMode = false;
+        currentSingleCameraIndex = 0; // 从第一个摄像头开始
+    } else {
+        // 已经是单摄像头模式，切换到下一个摄像头
+        currentSingleCameraIndex = (currentSingleCameraIndex + 1) % 4;
+    }
+    updateCameraLayout();
+}
+
+void MainWidget::onFourClicked()
+{
+    if (!isFourCameraMode) {
+        // 从单摄像头模式切换到四摄像头模式
+        isFourCameraMode = true;
+        updateCameraLayout();
+    }
+    // 如果已经是四摄像头模式，不做处理
+}
+
+void MainWidget::showVideoPlayerWidget()
+{
+    qDebug()<<"showVideoPlayerWidget()";
+
+    if(cameraThread){
+        qDebug()<<"线程在运行";
+        disconnect(cameraThread, &OpenCamera::sendImg, this, &MainWidget::onReceiveCameraImage);
+        qDebug()<<"断开直播线程的连接";
+        cameraThread->setIsClose(true); // 触发线程退出
+        qDebug()<<"线程在运行";
+        if(!cameraThread->wait(3000)) { // 等待3秒
+            qDebug() << "线程没有正常结束，强制终止";
+            cameraThread->terminate();
+            cameraThread->wait();
+        }
+        delete cameraThread;
+        cameraThread = nullptr;
+        qDebug()<<"结束已经启动的摄像头线程";
+    }
+    else{
+        qDebug()<<"线程没有在运行";
+    }
+
+    this->hide();
+
+    if(this->videoPlayWidget){
+        qDebug()<<"videoPlayer 已经存在，先释放";
+        delete this->videoPlayWidget;
+
+        this->videoPlayWidget = new VedioPlayer();
+        connect(this->videoPlayWidget, SIGNAL(showMainWidget()), this, SLOT(showMyMainWidget()));
+        qDebug()<<"new 一个新的 videoPlayer";
+    }
+    else{
+        qDebug()<<"videoPlayer 不存在，先new";
+        this->videoPlayWidget = new VedioPlayer();
+        connect(this->videoPlayWidget, SIGNAL(showMainWidget()), this, SLOT(showMyMainWidget()));
+    }
+
+//    this->videoPlayWidget->setTitle(item->text());
+    this->videoPlayWidget->show();
+}
+
+void MainWidget::showMyMainWidget()
+{
+    this->show();
 }

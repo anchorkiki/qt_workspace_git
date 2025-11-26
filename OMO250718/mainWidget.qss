@@ -64,6 +64,53 @@ QPushButton:pressed {
     padding: 5px;
 }
 
+/* 布局B标题 */
+.LayoutBTitle {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333333;
+    padding: 10px;
+    background-color: #e8f4fc;
+    border-radius: 4px;
+}
+
+/* 摄像头容器 */
+.CameraContainer {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #ffffff;
+}
+
+/* 摄像头显示标签 */
+.CameraDisplay {
+    background-color: #000000;
+    border: 1px solid #666;
+}
+
+/* 布局B下部容器 */
+.LayoutBBottom {
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+/* 下部图片标签 */
+.BottomImageLabel {
+    width: 60px;
+    height: 60px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #ffffff;
+}
+
+/* 下部右侧扩展标签 */
+.BottomExtendLabel {
+    padding: 0 20px;
+    color: #666;
+    border: 1px dashed #ccc;
+    border-radius: 4px;
+}
+
 /* 右侧空白区域（布局B和C中的占位控件） */
 .Placeholder {
     background-color: #e8e8e8;
