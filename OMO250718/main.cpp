@@ -51,6 +51,8 @@ int main(int argc, char *argv[])
 //    MainWidget mainWidget;
 //    mainWidget.show();
 
+    // ini单例
+    SettingData::getInstance()->loadIniData();
 
     // 开机动画
     MyView myView;
@@ -66,7 +68,7 @@ int main(int argc, char *argv[])
             // 第一次启动，先显示设置界面
             SettingWidget *settingWidget = new SettingWidget();
             // 连接设置完成信号到创建主界面的槽函数
-            QObject::connect(settingWidget, &SettingWidget::settingCompleted, [&](QString serialPortName, QString cameraName){
+            QObject::connect(settingWidget, &SettingWidget::settingCompleted, [&](){
                 MainWidget *mainWidget = new MainWidget();
                 // 传递串口参数
 //                mainWidget->onSettingCompleted(serialPortName, cameraName);

@@ -15,6 +15,7 @@ INPUT(
 ./debug\playthread.o
 ./debug\vedioplayer.o
 ./debug\trancecode.o
+./debug\settingdata.o
 ./debug\qrc_resource.o
 ./debug\moc_mainwindow.o
 ./debug\moc_settingwidget.o

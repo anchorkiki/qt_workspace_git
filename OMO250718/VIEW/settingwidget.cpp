@@ -5,7 +5,7 @@ SettingWidget::SettingWidget(QWidget *parent) : QWidget(parent)
     this->initWin();
     this->initConnect();
     // 加载配置
-    this->loadIni();
+    this->loadFromSettingData();
 }
 
 void SettingWidget::initWin()
@@ -210,12 +210,12 @@ void SettingWidget::fillCameraList()
     }
 }
 
-void SettingWidget::loadIni()
+void SettingWidget::loadFromSettingData()
 {
-    QSettings settings("../config.ini", QSettings::IniFormat);
+    SettingData* settingData = SettingData::getInstance();
 
-    // 1. 加载串口配置（存在则选中，不存在保持默认）
-    QString serialPort = settings.value("SerialPort/PortName").toString();
+    // 1. 串口配置
+    QString serialPort = settingData->getSerialPortName();
     if (!serialPort.isEmpty()) {
         int portIndex = cb_serialPort->findText(serialPort);
         if (portIndex != -1) {
@@ -223,20 +223,14 @@ void SettingWidget::loadIni()
         }
     }
 
-    // 2. 加载视频存储路径
-    QString storagePath = settings.value("Video/StoragePath").toString();
-    if (!storagePath.isEmpty()) {
-        le_videoStoragePath->setText(storagePath);
-    }
+    // 2. 视频存储路径
+    le_videoStoragePath->setText(settingData->getVideoStoragePath());
 
-    // 3. 加载视频分段时长
-    QString duration = settings.value("Video/SegmentDuration").toString();
-    if (!duration.isEmpty()) {
-        cb_videoSegmentDuration->setCurrentText(duration);
-    }
+    // 3. 视频分段时长
+    cb_videoSegmentDuration->setCurrentText(settingData->getVideoSegmentDuration());
 
-    // 4. 加载摄像头配置
-    QString camera = settings.value("Camera/Name").toString();
+    // 4. 摄像头配置
+    QString camera = settingData->getCameraName();
     if (!camera.isEmpty()) {
         int cameraIndex = cb_cameraConfig->findText(camera);
         if (cameraIndex != -1) {
@@ -244,56 +238,52 @@ void SettingWidget::loadIni()
         }
     }
 
-    // 5. 加载温度阈值（无配置时使用默认值）
-    le_tempNormal->setText(settings.value("Alarm/TempNormal", "30").toString());
-    le_tempSevere->setText(settings.value("Alarm/TempSevere", "35").toString());
+    // 5. 温度阈值
+    le_tempNormal->setText(QString::number(settingData->getTempNormal()));
+    le_tempSevere->setText(QString::number(settingData->getTempSevere()));
 
-    // 6. 加载湿度阈值
-    le_humidityNormal->setText(settings.value("Alarm/HumidityNormal", "60").toString());
-    le_humiditySevere->setText(settings.value("Alarm/HumiditySevere", "80").toString());
+    // 6. 湿度阈值
+    le_humidityNormal->setText(QString::number(settingData->getHumidityNormal()));
+    le_humiditySevere->setText(QString::number(settingData->getHumiditySevere()));
 
-    // 7. 加载光照阈值
-    le_lightNormal->setText(settings.value("Alarm/LightNormal", "500").toString());
-    le_lightSevere->setText(settings.value("Alarm/LightSevere", "1000").toString());
+    // 7. 光照阈值
+    le_lightNormal->setText(QString::number(settingData->getLightNormal()));
+    le_lightSevere->setText(QString::number(settingData->getLightSevere()));
 }
 
 void SettingWidget::saveIni()
 {
-    // 指定ini文件路径和格式
-    QString iniPath = "../config.ini";
-    QSettings settings(iniPath, QSettings::IniFormat);
-    qDebug() << "ini文件实际保存路径：" << QDir(iniPath).absolutePath();
+    SettingData* settingData = SettingData::getInstance();
 
     // 1. 串口配置
-    settings.setValue("SerialPort/PortName", cb_serialPort->currentText());
+    settingData->setSerialPortName(cb_serialPort->currentText());
 
     // 2. 视频相关配置
-    settings.setValue("Video/StoragePath", le_videoStoragePath->text());
-    settings.setValue("Video/SegmentDuration", cb_videoSegmentDuration->currentText());
+    settingData->setVideoStoragePath(le_videoStoragePath->text());
+    settingData->setVideoSegmentDuration(cb_videoSegmentDuration->currentText());
 
     // 3. 摄像头配置
-    settings.setValue("Camera/Name", cb_cameraConfig->currentText());
+    settingData->setCameraName(cb_cameraConfig->currentText());
 
     // 4. 温度告警阈值
-    settings.setValue("Alarm/TempNormal", le_tempNormal->text());
-    settings.setValue("Alarm/TempSevere", le_tempSevere->text());
+    settingData->setTempNormal(le_tempNormal->text().toDouble());
+    settingData->setTempSevere(le_tempSevere->text().toDouble());
 
     // 5. 湿度告警阈值
-    settings.setValue("Alarm/HumidityNormal", le_humidityNormal->text());
-    settings.setValue("Alarm/HumiditySevere", le_humiditySevere->text());
+    settingData->setHumidityNormal(le_humidityNormal->text().toDouble());
+    settingData->setHumiditySevere(le_humiditySevere->text().toDouble());
 
     // 6. 光照告警阈值
-    settings.setValue("Alarm/LightNormal", le_lightNormal->text());
-    settings.setValue("Alarm/LightSevere", le_lightSevere->text());
+    settingData->setLightNormal(le_lightNormal->text().toInt());
+    settingData->setLightSevere(le_lightSevere->text().toInt());
 
-    // 获取当前选中的串口和摄像头
-    QString serialPortName = cb_serialPort->currentText();
-    QString cameraName = cb_cameraConfig->currentText();
+    // 保存到INI文件
+    settingData->saveIniData();
 
-    // 发送合并后的信号（包含所有关键配置）
-    emit settingCompleted(serialPortName, cameraName);
+    // 发送设置完成信号
+    emit settingCompleted();
 
     // 关闭设置页面
     qDebug()<<"设置完毕";
-    this->close(); // 这里用close而不是hide，是因为方便后面释放资源
+    this->close();
 }

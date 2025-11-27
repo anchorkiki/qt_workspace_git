@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWidget_t {
-    QByteArrayData data[13];
-    char stringdata0[184];
+    QByteArrayData data[11];
+    char stringdata0[158];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -34,23 +34,21 @@ static const qt_meta_stringdata_MainWidget_t qt_meta_stringdata_MainWidget = {
 QT_MOC_LITERAL(0, 0, 10), // "MainWidget"
 QT_MOC_LITERAL(1, 11, 18), // "onSettingCompleted"
 QT_MOC_LITERAL(2, 30, 0), // ""
-QT_MOC_LITERAL(3, 31, 14), // "serialPortName"
-QT_MOC_LITERAL(4, 46, 10), // "cameraName"
-QT_MOC_LITERAL(5, 57, 14), // "readSerialData"
-QT_MOC_LITERAL(6, 72, 17), // "showSettingWidget"
-QT_MOC_LITERAL(7, 90, 20), // "onReceiveCameraImage"
-QT_MOC_LITERAL(8, 111, 3), // "img"
-QT_MOC_LITERAL(9, 115, 15), // "onSingleClicked"
-QT_MOC_LITERAL(10, 131, 13), // "onFourClicked"
-QT_MOC_LITERAL(11, 145, 21), // "showVideoPlayerWidget"
-QT_MOC_LITERAL(12, 167, 16) // "showMyMainWidget"
+QT_MOC_LITERAL(3, 31, 14), // "readSerialData"
+QT_MOC_LITERAL(4, 46, 17), // "showSettingWidget"
+QT_MOC_LITERAL(5, 64, 20), // "onReceiveCameraImage"
+QT_MOC_LITERAL(6, 85, 3), // "img"
+QT_MOC_LITERAL(7, 89, 15), // "onSingleClicked"
+QT_MOC_LITERAL(8, 105, 13), // "onFourClicked"
+QT_MOC_LITERAL(9, 119, 21), // "showVideoPlayerWidget"
+QT_MOC_LITERAL(10, 141, 16) // "showMyMainWidget"
 
     },
     "MainWidget\0onSettingCompleted\0\0"
-    "serialPortName\0cameraName\0readSerialData\0"
-    "showSettingWidget\0onReceiveCameraImage\0"
-    "img\0onSingleClicked\0onFourClicked\0"
-    "showVideoPlayerWidget\0showMyMainWidget"
+    "readSerialData\0showSettingWidget\0"
+    "onReceiveCameraImage\0img\0onSingleClicked\0"
+    "onFourClicked\0showVideoPlayerWidget\0"
+    "showMyMainWidget"
 };
 #undef QT_MOC_LITERAL
 
@@ -68,20 +66,20 @@ static const uint qt_meta_data_MainWidget[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    2,   54,    2, 0x0a /* Public */,
-       5,    0,   59,    2, 0x0a /* Public */,
-       6,    0,   60,    2, 0x0a /* Public */,
-       7,    1,   61,    2, 0x0a /* Public */,
-       9,    0,   64,    2, 0x0a /* Public */,
-      10,    0,   65,    2, 0x0a /* Public */,
-      11,    0,   66,    2, 0x0a /* Public */,
-      12,    0,   67,    2, 0x0a /* Public */,
+       1,    0,   54,    2, 0x0a /* Public */,
+       3,    0,   55,    2, 0x0a /* Public */,
+       4,    0,   56,    2, 0x0a /* Public */,
+       5,    1,   57,    2, 0x0a /* Public */,
+       7,    0,   60,    2, 0x0a /* Public */,
+       8,    0,   61,    2, 0x0a /* Public */,
+       9,    0,   62,    2, 0x0a /* Public */,
+      10,    0,   63,    2, 0x0a /* Public */,
 
  // slots: parameters
-    QMetaType::Void, QMetaType::QString, QMetaType::QString,    3,    4,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QImage,    8,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::QImage,    6,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -96,7 +94,7 @@ void MainWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         MainWidget *_t = static_cast<MainWidget *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->onSettingCompleted((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2]))); break;
+        case 0: _t->onSettingCompleted(); break;
         case 1: _t->readSerialData(); break;
         case 2: _t->showSettingWidget(); break;
         case 3: _t->onReceiveCameraImage((*reinterpret_cast< QImage(*)>(_a[1]))); break;

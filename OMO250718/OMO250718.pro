@@ -40,7 +40,8 @@ SOURCES += \
     TOOL/encodetoh264.cpp \
     THREAD/playthread.cpp \
     VIEW/vedioplayer.cpp \
-    TOOL/trancecode.cpp
+    TOOL/trancecode.cpp \
+    DATA/settingdata.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -57,7 +58,8 @@ HEADERS += \
     TOOL/encodetoh264.h \
     THREAD/playthread.h \
     VIEW/vedioplayer.h \
-    TOOL/trancecode.h
+    TOOL/trancecode.h \
+    DATA/settingdata.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

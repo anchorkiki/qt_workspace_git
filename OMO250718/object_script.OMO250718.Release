@@ -15,6 +15,7 @@ INPUT(
 ./release\playthread.o
 ./release\vedioplayer.o
 ./release\trancecode.o
+./release\settingdata.o
 ./release\qrc_resource.o
 ./release\moc_mainwindow.o
 ./release\moc_settingwidget.o

@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_SettingWidget_t {
-    QByteArrayData data[7];
-    char stringdata0[86];
+    QByteArrayData data[5];
+    char stringdata0[60];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -34,15 +34,12 @@ static const qt_meta_stringdata_SettingWidget_t qt_meta_stringdata_SettingWidget
 QT_MOC_LITERAL(0, 0, 13), // "SettingWidget"
 QT_MOC_LITERAL(1, 14, 16), // "settingCompleted"
 QT_MOC_LITERAL(2, 31, 0), // ""
-QT_MOC_LITERAL(3, 32, 14), // "serialPortName"
-QT_MOC_LITERAL(4, 47, 10), // "cameraName"
-QT_MOC_LITERAL(5, 58, 19), // "onSelectStoragePath"
-QT_MOC_LITERAL(6, 78, 7) // "saveIni"
+QT_MOC_LITERAL(3, 32, 19), // "onSelectStoragePath"
+QT_MOC_LITERAL(4, 52, 7) // "saveIni"
 
     },
     "SettingWidget\0settingCompleted\0\0"
-    "serialPortName\0cameraName\0onSelectStoragePath\0"
-    "saveIni"
+    "onSelectStoragePath\0saveIni"
 };
 #undef QT_MOC_LITERAL
 
@@ -60,14 +57,14 @@ static const uint qt_meta_data_SettingWidget[] = {
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    2,   29,    2, 0x06 /* Public */,
+       1,    0,   29,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       5,    0,   34,    2, 0x08 /* Private */,
-       6,    0,   35,    2, 0x08 /* Private */,
+       3,    0,   30,    2, 0x08 /* Private */,
+       4,    0,   31,    2, 0x08 /* Private */,
 
  // signals: parameters
-    QMetaType::Void, QMetaType::QString, QMetaType::QString,    3,    4,
+    QMetaType::Void,
 
  // slots: parameters
     QMetaType::Void,
@@ -82,7 +79,7 @@ void SettingWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         SettingWidget *_t = static_cast<SettingWidget *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->settingCompleted((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2]))); break;
+        case 0: _t->settingCompleted(); break;
         case 1: _t->onSelectStoragePath(); break;
         case 2: _t->saveIni(); break;
         default: ;
@@ -90,13 +87,14 @@ void SettingWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
-            typedef void (SettingWidget::*_t)(QString , QString );
+            typedef void (SettingWidget::*_t)();
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&SettingWidget::settingCompleted)) {
                 *result = 0;
                 return;
             }
         }
     }
+    Q_UNUSED(_a);
 }
 
 const QMetaObject SettingWidget::staticMetaObject = {
@@ -136,10 +134,9 @@ int SettingWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void SettingWidget::settingCompleted(QString _t1, QString _t2)
+void SettingWidget::settingCompleted()
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)) };
-    QMetaObject::activate(this, &staticMetaObject, 0, _a);
+    QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

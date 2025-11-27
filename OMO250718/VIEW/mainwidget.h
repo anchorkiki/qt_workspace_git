@@ -24,6 +24,7 @@
 #include "VIEW/barchart.h"
 #include "THREAD/opencamera.h"
 #include "VIEW/vedioplayer.h"
+#include "DATA/settingdata.h"
 
 
 class MainWidget : public QWidget
@@ -54,12 +55,21 @@ public:
     // 更新摄像头布局
    void updateCameraLayout();
 
+   // 启动所有任务
+   void startAllMission();
+
+   // 关闭所有任务
+   void closeAllMission();
+
+   // 加载ini数据
+   void loadIniData();
+
 protected:
     void showEvent(QShowEvent *event);
 
 public slots:
     // 接收设置界面的数据
-    void onSettingCompleted(QString serialPortName, QString cameraName);
+    void onSettingCompleted();
 
     // 读取串口数据
     void readSerialData();
@@ -123,7 +133,6 @@ private:
 
     // 串口
     QSerialPort *serial;
-    QString serialName;
 
     // 定时器
     QTimer *readDataTimer;
@@ -134,6 +143,7 @@ private:
     // 底下的窗口
     SettingWidget *settingWidget; // 设置窗口
     VedioPlayer *videoPlayWidget;
+
 };
 
 #endif // MAINWIDGET_H

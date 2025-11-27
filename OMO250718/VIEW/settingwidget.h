@@ -17,19 +17,37 @@
 #include <QDebug>
 #include <QDir>
 
+#include "DATA/settingdata.h"
+
 class SettingWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit SettingWidget(QWidget *parent = nullptr);
 
+    // =================
+    // 窗口初始化
+    void initWin();
+    // 初始化基础控件槽函数
+    void initConnect();
+
+    // 获取系统串口并填充下拉框
+    void fillSerialPortList();
+
+    // 填充摄像头列表
+    void fillCameraList();
+
+    //  获取ini数据填充页面
+    void loadFromSettingData();
+
 signals:
     // 设置完成信号
-    void settingCompleted(QString serialPortName, QString cameraName);
+    void settingCompleted();
 
 private slots:
     // 选择视频存储路径槽函数
     void onSelectStoragePath();
+
     // 保存ini文件
     void saveIni();
 
@@ -78,19 +96,6 @@ private:
 
     // 布局管理器
     QVBoxLayout *vLayout_main;   // 主垂直布局
-
-    // =================
-    // 窗口初始化
-    void initWin();
-    // 初始化基础控件槽函数
-    void initConnect();
-
-    // 获取系统串口并填充下拉框
-    void fillSerialPortList();
-    // 填充摄像头列表
-    void fillCameraList();
-    // 加载ini文件
-    void loadIni();
 
 };
 

@@ -2,12 +2,12 @@
 
 MainWidget::MainWidget(QWidget *parent) : QWidget(parent)
 {
+    this->settingWidget = new SettingWidget();
+
     this->readDataTimer = new QTimer(this);
     this->readDataTimer->setInterval(1000);
 
     this->serial = new QSerialPort(this);
-
-    this->settingWidget = new SettingWidget();
 
     this->lux = 0;
     this->temperature = 0;
@@ -310,7 +310,7 @@ void MainWidget::initSerial()
     }
 
     // 配置串口参数
-    serial->setPortName(this->serialName);
+    serial->setPortName(SettingData::getInstance()->getSerialPortName());
     serial->setDataBits(QSerialPort::Data8);
     serial->setBaudRate(QSerialPort::Baud115200);
     serial->setParity(QSerialPort::NoParity);
@@ -324,7 +324,7 @@ void MainWidget::openSerial()
     bool isOpen = serial->open(QIODevice::ReadWrite);
     if(!isOpen){
         // 打开失败
-        QMessageBox::critical(this, "串口错误", QString("无法打开串口 %1：%2").arg(this->serialName));
+        QMessageBox::critical(this, "串口错误", QString("无法打开串口 %1").arg(SettingData::getInstance()->getSerialPortName()));
     }
     else{
         // 打开成功
@@ -338,8 +338,7 @@ void MainWidget::openSerial()
 int MainWidget::checkSetting()
 {
     // 检查摄像头
-    QSettings settings("../config.ini", QSettings::IniFormat);
-    QString cameraName = settings.value("Camera/Name").toString();
+    QString cameraName = SettingData::getInstance()->getCameraName();
     qDebug()<<"摄像头:"<<cameraName;
 
     // 获取所有可用摄像头
@@ -366,8 +365,8 @@ int MainWidget::checkSetting()
     }
 
     // 检查串口
-    QString serialPort = settings.value("SerialPort/PortName").toString();
-    qDebug()<<"摄像头:"<<serialPort;
+    QString serialPort = SettingData::getInstance()->getSerialPortName();
+    qDebug()<<"串口:"<<serialPort;
     if (!serialPort.isEmpty()) {
         bool isSerialValid = false;
         foreach (const QSerialPortInfo& port, QSerialPortInfo::availablePorts()) {
@@ -388,8 +387,7 @@ int MainWidget::checkSetting()
 void MainWidget::startCameraAuto()
 {
     // 检查摄像头是否有效
-    QSettings settings("../config.ini", QSettings::IniFormat);
-    QString cameraName = settings.value("Camera/Name", "Integrated Camera").toString();
+    QString cameraName = SettingData::getInstance()->getCameraName();
 
 //    bool isCameraValid = false;
 //    foreach (const QCameraInfo& cam, QCameraInfo::availableCameras()) {
@@ -412,17 +410,16 @@ void MainWidget::startCameraAuto()
     cameraThread->start();
 }
 
-void MainWidget::onSettingCompleted(QString serialPortName, QString cameraName)
+void MainWidget::onSettingCompleted()
 {
-    this->serialName = serialPortName.trimmed().remove("\"");
-    qDebug()<<"收到串口名称:"<<this->serialName;
+    this->loadIniData();
 
+    // 重新初始化串口和摄像头
     this->initSerial();
     this->openSerial();
 
-    // 更新摄像头配置（重启摄像头线程）
-    qDebug()<<"收到摄像头名称:"<<cameraName;
-    restartCamera(cameraName);
+    // 更新摄像头配置
+    this->startAllMission();
 
     this->show(); // 重新显示主界面
 }
@@ -496,6 +493,8 @@ void MainWidget::showSettingWidget()
 {
     qDebug()<<"进入showSettingWidget()";
 
+    this->closeAllMission();
+
     if(cameraThread){
         qDebug()<<"线程在运行";
         disconnect(cameraThread, &OpenCamera::sendImg, this, &MainWidget::onReceiveCameraImage);
@@ -565,6 +564,13 @@ void MainWidget::restartCamera(QString newCameraName){
 
 void MainWidget::showEvent(QShowEvent *event)
 {
+    qDebug()<<"showEvent showEvent showEvent";
+    qDebug()<<"showEvent showEvent showEvent";
+    qDebug()<<"showEvent showEvent showEvent";
+    qDebug()<<"showEvent showEvent showEvent";
+    qDebug()<<"showEvent showEvent showEvent";
+    qDebug()<<"showEvent showEvent showEvent";
+
     QWidget::showEvent(event);
     static bool isFirstShow = true;
     if (isFirstShow) {
@@ -580,10 +586,8 @@ void MainWidget::showEvent(QShowEvent *event)
         }
         else{
             // 配置正常，初始化串口和摄像头
-            QSettings settings("../config.ini", QSettings::IniFormat);
-            QString serialPort = settings.value("SerialPort/PortName").toString();
+            QString serialPort = SettingData::getInstance()->getSerialPortName();
             if (!serialPort.isEmpty()) {
-                this->serialName = serialPort;
                 this->initSerial();
                 this->openSerial();
             }
@@ -657,6 +661,87 @@ void MainWidget::updateCameraLayout()
     }
 }
 
+void MainWidget::startAllMission()
+{
+    // 1. 启动温湿度读取定时器
+    if (!readDataTimer->isActive()) {
+        readDataTimer->start();
+        qDebug() << "温湿度读取定时器已启动";
+    }
+
+    // 2. 直接实现直播线程启动逻辑（不复用startCameraAuto）
+    // 先释放可能存在的旧线程
+    if (cameraThread) {
+        // 确保旧线程已停止
+        if (cameraThread->isRunning()) {
+            cameraThread->setIsClose(true);
+            cameraThread->wait(2000); // 等待2秒
+            if (cameraThread->isRunning()) {
+                cameraThread->terminate();
+                cameraThread->wait();
+            }
+        }
+        delete cameraThread;
+        cameraThread = nullptr;
+        qDebug() << "已释放旧直播线程";
+    }
+
+    // 从配置文件获取摄像头名称
+    QString cameraName = SettingData::getInstance()->getCameraName();
+
+    // 检查摄像头是否可用（保留必要的有效性校验）
+    bool isCameraValid = false;
+    foreach (const QCameraInfo& cam, QCameraInfo::availableCameras()) {
+        if (cam.description() == cameraName) {
+            isCameraValid = true;
+            break;
+        }
+    }
+    if (!isCameraValid) {
+        qDebug() << "摄像头「" << cameraName << "」不可用，不启动直播线程";
+        return;
+    }
+
+    // 创建并启动新的直播线程
+    cameraThread = new OpenCamera(cameraName);
+    // 连接图像接收信号
+    connect(cameraThread, &OpenCamera::sendImg, this, &MainWidget::onReceiveCameraImage);
+    // 设置播放状态并启动线程
+    cameraThread->setIsPlay(true);
+    cameraThread->start();
+    qDebug() << "新直播线程已启动，摄像头：" << cameraName;
+}
+
+void MainWidget::closeAllMission()
+{
+    // 1. 停止温湿度读取定时器
+    if (readDataTimer->isActive()) {
+        readDataTimer->stop();
+        qDebug() << "温湿度读取定时器已停止";
+    }
+
+    // 2. 停止并销毁直播线程
+    if (cameraThread) {
+        cameraThread->setIsClose(true);
+        if (cameraThread->isRunning()) {
+            if (!cameraThread->wait(2000)) { // 等待2秒
+                qDebug() << "直播线程强制终止";
+                cameraThread->terminate();
+                cameraThread->wait();
+            }
+        }
+        delete cameraThread;
+        cameraThread = nullptr;
+        qDebug() << "直播线程已销毁";
+    }
+}
+
+void MainWidget::loadIniData()
+{
+    SettingData::getInstance()->loadIniData();
+    qDebug()<<"从SettingData单例加载INI配置完成";
+}
+
 void MainWidget::onSingleClicked()
 {
     if (isFourCameraMode) {
@@ -683,6 +768,8 @@ void MainWidget::onFourClicked()
 void MainWidget::showVideoPlayerWidget()
 {
     qDebug()<<"showVideoPlayerWidget()";
+
+    this->closeAllMission();
 
     if(cameraThread){
         qDebug()<<"线程在运行";
@@ -726,4 +813,5 @@ void MainWidget::showVideoPlayerWidget()
 void MainWidget::showMyMainWidget()
 {
     this->show();
+    this->startAllMission();
 }
