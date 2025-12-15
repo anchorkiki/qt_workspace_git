@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/">
+        <file>img/knife.png</file>
+        <file>img/myView_Bg.jpg</file>
+        <file>img/oringe.png</file>
+        <file>img/oringes.png</file>
+        <file>mainWidget.qss</file>
+        <file>img/extend.png</file>
+        <file>img/four.png</file>
+        <file>img/single.png</file>
+        <file>img/setting.png</file>
+    </qresource>
+</RCC>
