@@ -13,8 +13,6 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QSpacerItem>
-#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -22,82 +20,32 @@ QT_BEGIN_NAMESPACE
 class Ui_ChooseWidget
 {
 public:
-    QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout;
-    QSpacerItem *horizontalSpacer;
     QPushButton *subBtn;
-    QSpacerItem *horizontalSpacer_2;
-    QHBoxLayout *horizontalLayout_2;
-    QSpacerItem *horizontalSpacer_3;
     QPushButton *docBtn;
-    QSpacerItem *horizontalSpacer_4;
-    QHBoxLayout *horizontalLayout_3;
-    QSpacerItem *horizontalSpacer_5;
     QPushButton *patientBtn;
-    QSpacerItem *horizontalSpacer_6;
 
     void setupUi(QWidget *ChooseWidget)
     {
         if (ChooseWidget->objectName().isEmpty())
             ChooseWidget->setObjectName("ChooseWidget");
-        ChooseWidget->resize(400, 300);
-        verticalLayout = new QVBoxLayout(ChooseWidget);
-        verticalLayout->setSpacing(6);
-        verticalLayout->setObjectName("verticalLayout");
-        verticalLayout->setContentsMargins(0, 0, 0, 0);
-        horizontalLayout = new QHBoxLayout();
+        ChooseWidget->resize(400, 299);
+        horizontalLayout = new QHBoxLayout(ChooseWidget);
         horizontalLayout->setObjectName("horizontalLayout");
-        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
-
-        horizontalLayout->addItem(horizontalSpacer);
-
         subBtn = new QPushButton(ChooseWidget);
         subBtn->setObjectName("subBtn");
 
         horizontalLayout->addWidget(subBtn);
 
-        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
-
-        horizontalLayout->addItem(horizontalSpacer_2);
-
-
-        verticalLayout->addLayout(horizontalLayout);
-
-        horizontalLayout_2 = new QHBoxLayout();
-        horizontalLayout_2->setObjectName("horizontalLayout_2");
-        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
-
-        horizontalLayout_2->addItem(horizontalSpacer_3);
-
         docBtn = new QPushButton(ChooseWidget);
         docBtn->setObjectName("docBtn");
 
-        horizontalLayout_2->addWidget(docBtn);
-
-        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
-
-        horizontalLayout_2->addItem(horizontalSpacer_4);
-
-
-        verticalLayout->addLayout(horizontalLayout_2);
-
-        horizontalLayout_3 = new QHBoxLayout();
-        horizontalLayout_3->setObjectName("horizontalLayout_3");
-        horizontalSpacer_5 = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
-
-        horizontalLayout_3->addItem(horizontalSpacer_5);
+        horizontalLayout->addWidget(docBtn);
 
         patientBtn = new QPushButton(ChooseWidget);
         patientBtn->setObjectName("patientBtn");
 
-        horizontalLayout_3->addWidget(patientBtn);
-
-        horizontalSpacer_6 = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
-
-        horizontalLayout_3->addItem(horizontalSpacer_6);
-
-
-        verticalLayout->addLayout(horizontalLayout_3);
+        horizontalLayout->addWidget(patientBtn);
 
 
         retranslateUi(ChooseWidget);

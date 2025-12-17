@@ -1,5 +1,5 @@
-#include "AddSubWidget.h"
-#include "ui_AddSubWidget.h"
+#include "addsubwidget.h"
+#include "ui_addsubwidget.h"
 
 AddSubWidget::AddSubWidget(QWidget *parent)
     : QWidget(parent)

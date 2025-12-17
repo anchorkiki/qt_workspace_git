@@ -41,17 +41,31 @@ template <> constexpr inline auto PatientWidget::qt_create_metaobjectdata<qt_met
         "PatientWidget",
         "sigSwitchToAddPatient",
         "",
+        "index",
         "sigSwitchToModifyPatient",
-        "sigSwitchToDelPatient"
+        "on_searchBtn_clicked",
+        "on_delBtn_clicked",
+        "on_addBtn_clicked",
+        "on_editBtn_clicked"
     };
 
     QtMocHelpers::UintData qt_methods {
         // Signal 'sigSwitchToAddPatient'
-        QtMocHelpers::SignalData<void()>(1, 2, QMC::AccessPublic, QMetaType::Void),
+        QtMocHelpers::SignalData<void(int)>(1, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::Int, 3 },
+        }}),
         // Signal 'sigSwitchToModifyPatient'
-        QtMocHelpers::SignalData<void()>(3, 2, QMC::AccessPublic, QMetaType::Void),
-        // Signal 'sigSwitchToDelPatient'
-        QtMocHelpers::SignalData<void()>(4, 2, QMC::AccessPublic, QMetaType::Void),
+        QtMocHelpers::SignalData<void(int)>(4, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::Int, 3 },
+        }}),
+        // Slot 'on_searchBtn_clicked'
+        QtMocHelpers::SlotData<void()>(5, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_delBtn_clicked'
+        QtMocHelpers::SlotData<void()>(6, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_addBtn_clicked'
+        QtMocHelpers::SlotData<void()>(7, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_editBtn_clicked'
+        QtMocHelpers::SlotData<void()>(8, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -75,18 +89,19 @@ void PatientWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
     auto *_t = static_cast<PatientWidget *>(_o);
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
-        case 0: _t->sigSwitchToAddPatient(); break;
-        case 1: _t->sigSwitchToModifyPatient(); break;
-        case 2: _t->sigSwitchToDelPatient(); break;
+        case 0: _t->sigSwitchToAddPatient((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 1: _t->sigSwitchToModifyPatient((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 2: _t->on_searchBtn_clicked(); break;
+        case 3: _t->on_delBtn_clicked(); break;
+        case 4: _t->on_addBtn_clicked(); break;
+        case 5: _t->on_editBtn_clicked(); break;
         default: ;
         }
     }
     if (_c == QMetaObject::IndexOfMethod) {
-        if (QtMocHelpers::indexOfMethod<void (PatientWidget::*)()>(_a, &PatientWidget::sigSwitchToAddPatient, 0))
+        if (QtMocHelpers::indexOfMethod<void (PatientWidget::*)(int )>(_a, &PatientWidget::sigSwitchToAddPatient, 0))
             return;
-        if (QtMocHelpers::indexOfMethod<void (PatientWidget::*)()>(_a, &PatientWidget::sigSwitchToModifyPatient, 1))
-            return;
-        if (QtMocHelpers::indexOfMethod<void (PatientWidget::*)()>(_a, &PatientWidget::sigSwitchToDelPatient, 2))
+        if (QtMocHelpers::indexOfMethod<void (PatientWidget::*)(int )>(_a, &PatientWidget::sigSwitchToModifyPatient, 1))
             return;
     }
 }
@@ -110,33 +125,27 @@ int PatientWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 3)
+        if (_id < 6)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 3;
+        _id -= 6;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 3)
+        if (_id < 6)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 3;
+        _id -= 6;
     }
     return _id;
 }
 
 // SIGNAL 0
-void PatientWidget::sigSwitchToAddPatient()
+void PatientWidget::sigSwitchToAddPatient(int _t1)
 {
-    QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
+    QMetaObject::activate<void>(this, &staticMetaObject, 0, nullptr, _t1);
 }
 
 // SIGNAL 1
-void PatientWidget::sigSwitchToModifyPatient()
+void PatientWidget::sigSwitchToModifyPatient(int _t1)
 {
-    QMetaObject::activate(this, &staticMetaObject, 1, nullptr);
-}
-
-// SIGNAL 2
-void PatientWidget::sigSwitchToDelPatient()
-{
-    QMetaObject::activate(this, &staticMetaObject, 2, nullptr);
+    QMetaObject::activate<void>(this, &staticMetaObject, 1, nullptr, _t1);
 }
 QT_WARNING_POP

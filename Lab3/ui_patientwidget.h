@@ -28,7 +28,7 @@ public:
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout;
     QSpacerItem *horizontalSpacer_2;
-    QLineEdit *lineEdit;
+    QLineEdit *txtSearch;
     QPushButton *searchBtn;
     QPushButton *addBtn;
     QPushButton *delBtn;
@@ -49,10 +49,10 @@ public:
 
         horizontalLayout->addItem(horizontalSpacer_2);
 
-        lineEdit = new QLineEdit(PatientWidget);
-        lineEdit->setObjectName("lineEdit");
+        txtSearch = new QLineEdit(PatientWidget);
+        txtSearch->setObjectName("txtSearch");
 
-        horizontalLayout->addWidget(lineEdit);
+        horizontalLayout->addWidget(txtSearch);
 
         searchBtn = new QPushButton(PatientWidget);
         searchBtn->setObjectName("searchBtn");

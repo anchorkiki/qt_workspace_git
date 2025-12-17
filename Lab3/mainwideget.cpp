@@ -137,7 +137,7 @@ void MainWideget::onSwitchToPatient() {
 
     // 患者管理页面 -> 各操作页面
     connect(patientWidget, &PatientWidget::sigSwitchToAddPatient, this, &MainWideget::onSwitchToAddPatient);
-    // connect(patientWidget, &PatientWidget::sigSwitchToModifyPatient, this, &MainWideget::onSwitchToModifyPatient);
+    connect(patientWidget, &PatientWidget::sigSwitchToModifyPatient, this, &MainWideget::onSwitchToModifyPatient);
     // connect(patientWidget, &PatientWidget::sigSwitchToDelPatient, this, &MainWideget::onSwitchToDelPatient);
 }
 
@@ -172,17 +172,20 @@ void MainWideget::onSwitchToDelDoc() {
 }
 
 // 切换到添加患者页
-void MainWideget::onSwitchToAddPatient() { 
-    this->addPatientWidget = new AddPatientWidget(this);
+void MainWideget::onSwitchToAddPatient(int rowIndex) {
+    this->addPatientWidget = new AddPatientWidget(this, rowIndex);
     this->pushWidgetToTop(this->addPatientWidget);
 
-
+    connect(addPatientWidget, &AddPatientWidget::goLastWidget, this, &MainWideget::onSwitchToLast);
 
 }
 
 // 切换到修改患者页
-void MainWideget::onSwitchToModifyPatient() {
-    ui->stackedWidget->setCurrentWidget(modifyPatWidget);
+void MainWideget::onSwitchToModifyPatient(int rowNo) {
+    this->modifyPatWidget = new ModifyPatWidget(this, rowNo);
+    this->pushWidgetToTop(this->modifyPatWidget);
+
+    connect(modifyPatWidget, &ModifyPatWidget::goLastWidget, this, &MainWideget::onSwitchToLast);
 }
 
 // 切换到删除患者页
@@ -207,6 +210,8 @@ void MainWideget::onSwitchToLast()
 
 void MainWideget::onExit()
 {
+    onSwitchToLogin();
+
 
 }
 

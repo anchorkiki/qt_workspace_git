@@ -1,5 +1,5 @@
-#include "DelSubWidget.h"
-#include "ui_DelSubWidget.h"
+#include "delsubwidget.h"
+#include "ui_delsubwidget.h"
 
 DelSubWidget::DelSubWidget(QWidget *parent)
     : QWidget(parent)

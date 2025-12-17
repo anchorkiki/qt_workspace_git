@@ -18,13 +18,19 @@ public:
 private:
     Ui::PatientWidget *ui;
 
+
+
 signals:
     // 切换到添加患者页面
-    void sigSwitchToAddPatient();
+    void sigSwitchToAddPatient(int index);
     // 切换到修改患者页面
-    void sigSwitchToModifyPatient();
-    // 切换到删除患者页面
-    void sigSwitchToDelPatient();
+    void sigSwitchToModifyPatient(int index);
+
+private slots:
+    void on_searchBtn_clicked();
+    void on_delBtn_clicked();
+    void on_addBtn_clicked();
+    void on_editBtn_clicked();
 };
 
 #endif // PATIENTWIDGET_H

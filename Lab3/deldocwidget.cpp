@@ -1,5 +1,5 @@
-#include "DelDocWidget.h"
-#include "ui_DelDocWidget.h"
+#include "deldocwidget.h"
+#include "ui_deldocwidget.h"
 
 DelDocWidget::DelDocWidget(QWidget *parent)
     : QWidget(parent)

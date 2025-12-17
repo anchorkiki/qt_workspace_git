@@ -1,5 +1,5 @@
-#include "AddDoctorWidget.h"
-#include "ui_AddDoctorWidget.h"
+#include "adddoctorwidget.h"
+#include "ui_adddoctorwidget.h"
 
 AddDoctorWidget::AddDoctorWidget(QWidget *parent)
     : QWidget(parent)

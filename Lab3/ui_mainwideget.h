@@ -38,7 +38,7 @@ public:
     {
         if (MainWideget->objectName().isEmpty())
             MainWideget->setObjectName("MainWideget");
-        MainWideget->resize(800, 600);
+        MainWideget->resize(660, 426);
         verticalLayout = new QVBoxLayout(MainWideget);
         verticalLayout->setObjectName("verticalLayout");
         horizontalLayout = new QHBoxLayout();

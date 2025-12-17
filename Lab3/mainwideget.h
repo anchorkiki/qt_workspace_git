@@ -58,14 +58,16 @@ private slots:
     void onSwitchToModifyDoc();
     void onSwitchToDelDoc();
 
-    void onSwitchToAddPatient();
-    void onSwitchToModifyPatient();
+    void onSwitchToAddPatient(int rowIndex);
+    void onSwitchToModifyPatient(int rowNo);
     void onSwitchToDelPatient();
 
     void onSwitchToLast();
     void onExit();
 
     void on_stackedWidget_currentChanged(int arg1);
+
+    void on_returnBtn_clicked();
 
 private:
     Ui::MainWideget *ui;

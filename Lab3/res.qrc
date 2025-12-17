@@ -2,5 +2,9 @@
     <qresource prefix="/">
         <file>image/exit.png</file>
         <file>image/return.png</file>
+        <file>image/delete.png</file>
+        <file>image/edit.png</file>
+        <file>image/new.png</file>
+        <file>image/search.png</file>
     </qresource>
 </RCC>

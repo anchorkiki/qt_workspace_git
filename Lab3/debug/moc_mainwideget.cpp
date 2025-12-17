@@ -52,12 +52,15 @@ template <> constexpr inline auto MainWideget::qt_create_metaobjectdata<qt_meta_
         "onSwitchToModifyDoc",
         "onSwitchToDelDoc",
         "onSwitchToAddPatient",
+        "rowIndex",
         "onSwitchToModifyPatient",
+        "rowNo",
         "onSwitchToDelPatient",
         "onSwitchToLast",
         "onExit",
         "on_stackedWidget_currentChanged",
-        "arg1"
+        "arg1",
+        "on_returnBtn_clicked"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -84,19 +87,25 @@ template <> constexpr inline auto MainWideget::qt_create_metaobjectdata<qt_meta_
         // Slot 'onSwitchToDelDoc'
         QtMocHelpers::SlotData<void()>(12, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'onSwitchToAddPatient'
-        QtMocHelpers::SlotData<void()>(13, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'onSwitchToModifyPatient'
-        QtMocHelpers::SlotData<void()>(14, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'onSwitchToDelPatient'
-        QtMocHelpers::SlotData<void()>(15, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'onSwitchToLast'
-        QtMocHelpers::SlotData<void()>(16, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'onExit'
-        QtMocHelpers::SlotData<void()>(17, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'on_stackedWidget_currentChanged'
-        QtMocHelpers::SlotData<void(int)>(18, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { QMetaType::Int, 19 },
+        QtMocHelpers::SlotData<void(int)>(13, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::Int, 14 },
         }}),
+        // Slot 'onSwitchToModifyPatient'
+        QtMocHelpers::SlotData<void(int)>(15, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::Int, 16 },
+        }}),
+        // Slot 'onSwitchToDelPatient'
+        QtMocHelpers::SlotData<void()>(17, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'onSwitchToLast'
+        QtMocHelpers::SlotData<void()>(18, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'onExit'
+        QtMocHelpers::SlotData<void()>(19, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_stackedWidget_currentChanged'
+        QtMocHelpers::SlotData<void(int)>(20, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::Int, 21 },
+        }}),
+        // Slot 'on_returnBtn_clicked'
+        QtMocHelpers::SlotData<void()>(22, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -131,8 +140,8 @@ void MainWideget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         case 8: _t->onSwitchToAddDoctor(); break;
         case 9: _t->onSwitchToModifyDoc(); break;
         case 10: _t->onSwitchToDelDoc(); break;
-        case 11: _t->onSwitchToAddPatient(); break;
-        case 12: _t->onSwitchToModifyPatient(); break;
+        case 11: _t->onSwitchToAddPatient((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 12: _t->onSwitchToModifyPatient((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
         case 13: _t->onSwitchToDelPatient(); break;
         case 14: _t->onSwitchToLast(); break;
         case 15: _t->onExit(); break;
@@ -161,14 +170,14 @@ int MainWideget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 17)
+        if (_id < 18)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 17;
+        _id -= 18;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 17)
+        if (_id < 18)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 17;
+        _id -= 18;
     }
     return _id;
 }

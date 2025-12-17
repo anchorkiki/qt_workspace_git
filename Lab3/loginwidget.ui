@@ -87,7 +87,11 @@
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="userEdit"/>
+      <widget class="QLineEdit" name="userEdit">
+       <property name="placeholderText">
+        <string>请输入用户名</string>
+       </property>
+      </widget>
      </item>
      <item>
       <spacer name="horizontalSpacer_2">
@@ -130,7 +134,14 @@
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="pwdEdit"/>
+      <widget class="QLineEdit" name="pwdEdit">
+       <property name="echoMode">
+        <enum>QLineEdit::EchoMode::Password</enum>
+       </property>
+       <property name="placeholderText">
+        <string>请输入密码</string>
+       </property>
+      </widget>
      </item>
      <item>
       <spacer name="horizontalSpacer_5">

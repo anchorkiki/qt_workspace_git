@@ -54,6 +54,9 @@ public:
     QHBoxLayout *horizontalLayout_8;
     QLabel *label_7;
     QLineEdit *phoneEdit;
+    QHBoxLayout *horizontalLayout_9;
+    QLabel *label_8;
+    QLineEdit *dbCreatedTimestamp;
     QHBoxLayout *horizontalLayout_10;
     QPushButton *saveBtn;
     QPushButton *backBtn;
@@ -194,6 +197,21 @@ public:
 
         verticalLayout->addLayout(horizontalLayout_8);
 
+        horizontalLayout_9 = new QHBoxLayout();
+        horizontalLayout_9->setObjectName("horizontalLayout_9");
+        label_8 = new QLabel(AddPatientWidget);
+        label_8->setObjectName("label_8");
+
+        horizontalLayout_9->addWidget(label_8);
+
+        dbCreatedTimestamp = new QLineEdit(AddPatientWidget);
+        dbCreatedTimestamp->setObjectName("dbCreatedTimestamp");
+
+        horizontalLayout_9->addWidget(dbCreatedTimestamp);
+
+
+        verticalLayout->addLayout(horizontalLayout_9);
+
         horizontalLayout_10 = new QHBoxLayout();
         horizontalLayout_10->setObjectName("horizontalLayout_10");
         saveBtn = new QPushButton(AddPatientWidget);
@@ -233,6 +251,7 @@ public:
         label_6->setText(QCoreApplication::translate("AddPatientWidget", "\350\272\253\351\253\230\357\274\232", nullptr));
         label_5->setText(QCoreApplication::translate("AddPatientWidget", "\344\275\223\351\207\215\357\274\232", nullptr));
         label_7->setText(QCoreApplication::translate("AddPatientWidget", "\346\211\213\346\234\272\345\217\267\347\240\201\357\274\232", nullptr));
+        label_8->setText(QCoreApplication::translate("AddPatientWidget", "\345\210\233\345\273\272\346\227\266\351\227\264\357\274\232", nullptr));
         saveBtn->setText(QCoreApplication::translate("AddPatientWidget", "\344\277\235\345\255\230", nullptr));
         backBtn->setText(QCoreApplication::translate("AddPatientWidget", "\350\277\224\345\233\236", nullptr));
     } // retranslateUi
