@@ -94,7 +94,7 @@ public:
 
     void retranslateUi(QWidget *DocWidget)
     {
-        DocWidget->setWindowTitle(QCoreApplication::translate("DocWidget", "Form", nullptr));
+        DocWidget->setWindowTitle(QCoreApplication::translate("DocWidget", "\345\214\273\347\224\237\347\256\241\347\220\206", nullptr));
         searchBtn->setText(QCoreApplication::translate("DocWidget", "\346\237\245\346\211\276", nullptr));
         addBtn->setText(QCoreApplication::translate("DocWidget", "\346\267\273\345\212\240", nullptr));
         delBtn->setText(QCoreApplication::translate("DocWidget", "\345\210\240\351\231\244", nullptr));

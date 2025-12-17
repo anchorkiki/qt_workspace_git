@@ -10,6 +10,7 @@
 #define UI_MAINWIDEGET_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
@@ -26,11 +27,11 @@ class Ui_MainWideget
 public:
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout;
-    QPushButton *pushButton;
+    QPushButton *returnBtn;
     QSpacerItem *horizontalSpacer;
-    QLabel *label;
+    QLabel *titleLabel;
     QSpacerItem *horizontalSpacer_2;
-    QPushButton *pushButton_2;
+    QPushButton *exitBtn;
     QStackedWidget *stackedWidget;
 
     void setupUi(QWidget *MainWideget)
@@ -42,28 +43,34 @@ public:
         verticalLayout->setObjectName("verticalLayout");
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName("horizontalLayout");
-        pushButton = new QPushButton(MainWideget);
-        pushButton->setObjectName("pushButton");
+        returnBtn = new QPushButton(MainWideget);
+        returnBtn->setObjectName("returnBtn");
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/image/return.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        returnBtn->setIcon(icon);
 
-        horizontalLayout->addWidget(pushButton);
+        horizontalLayout->addWidget(returnBtn);
 
         horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
 
         horizontalLayout->addItem(horizontalSpacer);
 
-        label = new QLabel(MainWideget);
-        label->setObjectName("label");
+        titleLabel = new QLabel(MainWideget);
+        titleLabel->setObjectName("titleLabel");
 
-        horizontalLayout->addWidget(label);
+        horizontalLayout->addWidget(titleLabel);
 
         horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
 
         horizontalLayout->addItem(horizontalSpacer_2);
 
-        pushButton_2 = new QPushButton(MainWideget);
-        pushButton_2->setObjectName("pushButton_2");
+        exitBtn = new QPushButton(MainWideget);
+        exitBtn->setObjectName("exitBtn");
+        QIcon icon1;
+        icon1.addFile(QString::fromUtf8(":/image/exit.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        exitBtn->setIcon(icon1);
 
-        horizontalLayout->addWidget(pushButton_2);
+        horizontalLayout->addWidget(exitBtn);
 
 
         verticalLayout->addLayout(horizontalLayout);
@@ -82,9 +89,9 @@ public:
     void retranslateUi(QWidget *MainWideget)
     {
         MainWideget->setWindowTitle(QCoreApplication::translate("MainWideget", "MainWideget", nullptr));
-        pushButton->setText(QCoreApplication::translate("MainWideget", "\350\277\224\345\233\236", nullptr));
-        label->setText(QCoreApplication::translate("MainWideget", "\345\214\273\351\231\242\350\257\212\347\226\227\347\263\273\347\273\237\347\224\250\346\210\267\344\277\241\346\201\257\347\256\241\347\220\206\347\263\273\347\273\237", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("MainWideget", "\346\263\250\351\224\200", nullptr));
+        returnBtn->setText(QString());
+        titleLabel->setText(QString());
+        exitBtn->setText(QString());
     } // retranslateUi
 
 };

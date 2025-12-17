@@ -1,6 +1,6 @@
 #ifndef MODIFYPATWIDGET_H
 #define MODIFYPATWIDGET_H
-
+#include <QDebug>
 #include <QWidget>
 
 namespace Ui {

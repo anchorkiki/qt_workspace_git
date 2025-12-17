@@ -1,6 +1,6 @@
 #ifndef AddDoctorWidget_H
 #define AddDoctorWidget_H
-
+#include <QDebug>
 #include <QWidget>
 
 namespace Ui {

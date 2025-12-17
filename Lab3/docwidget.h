@@ -1,6 +1,6 @@
 #ifndef DOCWIDGET_H
 #define DOCWIDGET_H
-
+#include <QDebug>
 #include <QWidget>
 
 namespace Ui {

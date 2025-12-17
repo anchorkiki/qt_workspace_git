@@ -32,7 +32,7 @@ public:
 
     void retranslateUi(QWidget *DelDocWidget)
     {
-        DelDocWidget->setWindowTitle(QCoreApplication::translate("DelDocWidget", "Form", nullptr));
+        DelDocWidget->setWindowTitle(QCoreApplication::translate("DelDocWidget", "\345\210\240\351\231\244\345\214\273\347\224\237", nullptr));
     } // retranslateUi
 
 };

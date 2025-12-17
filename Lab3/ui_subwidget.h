@@ -94,7 +94,7 @@ public:
 
     void retranslateUi(QWidget *SubWidget)
     {
-        SubWidget->setWindowTitle(QCoreApplication::translate("SubWidget", "Form", nullptr));
+        SubWidget->setWindowTitle(QCoreApplication::translate("SubWidget", "\347\247\221\345\256\244\347\256\241\347\220\206", nullptr));
         searchBtn->setText(QCoreApplication::translate("SubWidget", "\346\237\245\346\211\276", nullptr));
         addBtn->setText(QCoreApplication::translate("SubWidget", "\346\267\273\345\212\240", nullptr));
         delBtn->setText(QCoreApplication::translate("SubWidget", "\345\210\240\351\231\244", nullptr));

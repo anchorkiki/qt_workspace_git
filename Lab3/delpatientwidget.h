@@ -1,6 +1,6 @@
 #ifndef DELPATIENTWIDGET_H
 #define DELPATIENTWIDGET_H
-
+#include <QDebug>
 #include <QWidget>
 
 namespace Ui {

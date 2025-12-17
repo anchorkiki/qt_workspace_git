@@ -224,7 +224,7 @@ public:
 
     void retranslateUi(QWidget *AddPatientWidget)
     {
-        AddPatientWidget->setWindowTitle(QCoreApplication::translate("AddPatientWidget", "Form", nullptr));
+        AddPatientWidget->setWindowTitle(QCoreApplication::translate("AddPatientWidget", "\346\267\273\345\212\240\346\202\243\350\200\205", nullptr));
         label->setText(QCoreApplication::translate("AddPatientWidget", "ID\357\274\232", nullptr));
         label_3->setText(QCoreApplication::translate("AddPatientWidget", "\345\247\223\345\220\215\357\274\232", nullptr));
         label_2->setText(QCoreApplication::translate("AddPatientWidget", "\350\272\253\344\273\275\350\257\201\345\217\267\357\274\232", nullptr));

@@ -17,5 +17,6 @@ ChooseWidget::ChooseWidget(QWidget *parent)
 
 ChooseWidget::~ChooseWidget()
 {
+    qDebug()<<"析构 ChooseWidget";
     delete ui;
 }

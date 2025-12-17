@@ -1,6 +1,6 @@
 #ifndef DelDocWidget_H
 #define DelDocWidget_H
-
+#include <QDebug>
 #include <QWidget>
 #include "ui_deldocwidget.h"
 

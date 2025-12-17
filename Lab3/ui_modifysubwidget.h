@@ -32,7 +32,7 @@ public:
 
     void retranslateUi(QWidget *ModifySubWidget)
     {
-        ModifySubWidget->setWindowTitle(QCoreApplication::translate("ModifySubWidget", "Form", nullptr));
+        ModifySubWidget->setWindowTitle(QCoreApplication::translate("ModifySubWidget", "\344\277\256\346\224\271\347\247\221\345\256\244\344\277\241\346\201\257", nullptr));
     } // retranslateUi
 
 };

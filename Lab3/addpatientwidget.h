@@ -1,6 +1,6 @@
 #ifndef AddPatientWidget_H
 #define AddPatientWidget_H
-
+#include <QDebug>
 #include <QWidget>
 
 namespace Ui {

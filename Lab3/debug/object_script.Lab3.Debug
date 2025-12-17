@@ -13,7 +13,9 @@ debug/modifydocwidget.o
 debug/modifypatwidget.o
 debug/modifysubwidget.o
 debug/patientwidget.o
+debug/singletodb.o
 debug/subwidget.o
+debug/qrc_res.o
 debug/moc_adddoctorwidget.o
 debug/moc_addpatientwidget.o
 debug/moc_addsubwidget.o
@@ -28,4 +30,5 @@ debug/moc_modifydocwidget.o
 debug/moc_modifypatwidget.o
 debug/moc_modifysubwidget.o
 debug/moc_patientwidget.o
+debug/moc_singletodb.o
 debug/moc_subwidget.o

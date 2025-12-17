@@ -1,6 +1,7 @@
 #ifndef CHOOSEWIDGET_H
 #define CHOOSEWIDGET_H
 
+#include <QDebug>
 #include <QWidget>
 
 namespace Ui {

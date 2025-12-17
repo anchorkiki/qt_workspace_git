@@ -32,7 +32,7 @@ public:
 
     void retranslateUi(QWidget *DelPatientWidget)
     {
-        DelPatientWidget->setWindowTitle(QCoreApplication::translate("DelPatientWidget", "Form", nullptr));
+        DelPatientWidget->setWindowTitle(QCoreApplication::translate("DelPatientWidget", "\345\210\240\351\231\244\346\202\243\350\200\205", nullptr));
     } // retranslateUi
 
 };

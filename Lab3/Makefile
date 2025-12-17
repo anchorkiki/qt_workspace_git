@@ -309,9 +309,11 @@ Makefile: Lab3.pro ../../../Qt/6.9.2/mingw_64/mkspecs/win32-g++/qmake.conf ../..
 		Lab3.pro \
 		../../../Qt/6.9.2/mingw_64/lib/Qt6Widgets.prl \
 		../../../Qt/6.9.2/mingw_64/lib/Qt6Gui.prl \
+		../../../Qt/6.9.2/mingw_64/lib/Qt6Sql.prl \
 		../../../Qt/6.9.2/mingw_64/lib/Qt6Core.prl \
 		../../../Qt/6.9.2/mingw_64/lib/Qt6EntryPoint.prl \
-		../../../Qt/6.9.2/mingw_64/mkspecs/features/build_pass.prf
+		../../../Qt/6.9.2/mingw_64/mkspecs/features/build_pass.prf \
+		res.qrc
 	$(QMAKE) -o Makefile Lab3.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
 ../../../Qt/6.9.2/mingw_64/mkspecs/features/spec_pre.prf:
 ../../../Qt/6.9.2/mingw_64/mkspecs/features/device_config.prf:
@@ -552,9 +554,11 @@ Makefile: Lab3.pro ../../../Qt/6.9.2/mingw_64/mkspecs/win32-g++/qmake.conf ../..
 Lab3.pro:
 ../../../Qt/6.9.2/mingw_64/lib/Qt6Widgets.prl:
 ../../../Qt/6.9.2/mingw_64/lib/Qt6Gui.prl:
+../../../Qt/6.9.2/mingw_64/lib/Qt6Sql.prl:
 ../../../Qt/6.9.2/mingw_64/lib/Qt6Core.prl:
 ../../../Qt/6.9.2/mingw_64/lib/Qt6EntryPoint.prl:
 ../../../Qt/6.9.2/mingw_64/mkspecs/features/build_pass.prf:
+res.qrc:
 qmake: FORCE
 	@$(QMAKE) -o Makefile Lab3.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
 

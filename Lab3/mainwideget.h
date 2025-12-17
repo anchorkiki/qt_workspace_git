@@ -1,6 +1,6 @@
 #ifndef MAINWIDGET_H
 #define MAINWIDGET_H
-
+#include <QDebug>
 #include <QWidget>
 
 // ========== 登录相关 ==========
@@ -39,38 +39,56 @@ public:
     MainWideget(QWidget *parent = nullptr);
     ~MainWideget();
 
+    void pushWidgetToTop(QWidget *newWidget);
+
 private slots:
     // 页面切换槽函数
-    void onSwitchToLogin();
-    void onSwitchToChoose();
-    void onSwitchToSub();
-    void onSwitchToDoc();
-    void onSwitchToPatient();
+    void onSwitchToLogin();         // 进入登录页面
+    void onSwitchToChoose();        // 点击登录进入选择页面
+
+    void onSwitchToSub();           // 选择科室
+    void onSwitchToDoc();           // 选择医生
+    void onSwitchToPatient();       // 选择病人
+
     void onSwitchToAddSub();
     void onSwitchToModifySub();
     void onSwitchToDelSub();
+
     void onSwitchToAddDoctor();
     void onSwitchToModifyDoc();
     void onSwitchToDelDoc();
+
     void onSwitchToAddPatient();
     void onSwitchToModifyPatient();
     void onSwitchToDelPatient();
 
+    void onSwitchToLast();
+    void onExit();
+
+    void on_stackedWidget_currentChanged(int arg1);
+
 private:
     Ui::MainWideget *ui;
 
-    // 页面实例指针（严格匹配头文件中的类名，避免大小写/拼写错误）
+    // 页面实例指针
     LoginWidget *loginWidget;
     ChooseWidget *chooseWidget;
-    SubWidget *subWidget;
-    DocWidget *docWidget;
-    PatientWidget *patientWidget;
-    AddSubWidget *addSubWidget;
-    ModifySubWidget *modifySubWidget;
-    DelSubWidget *delSubWidget;
+
+    SubWidget *subWidget;           // 科室界面
+    DocWidget *docWidget;           // 医生界面
+    PatientWidget *patientWidget;   // 病人界面
+
+    // 科室
+    AddSubWidget *addSubWidget;         // 添加科室界面
+    ModifySubWidget *modifySubWidget;   // 修改科室界面
+    DelSubWidget *delSubWidget;         // 删除科室界面
+
+    // 医生
     AddDoctorWidget *addDoctorWidget;
     ModifyDocWidget *modifyDocWidget;
     DelDocWidget *delDocWidget;
+
+    // 患者
     AddPatientWidget *addPatientWidget;
     ModifyPatWidget *modifyPatWidget;
     DelPatientWidget *delPatientWidget;

@@ -13,5 +13,6 @@ AddPatientWidget::AddPatientWidget(QWidget *parent)
 
 AddPatientWidget::~AddPatientWidget()
 {
+    qDebug()<<"析构 AddPatientWidget";
     delete ui;
 }

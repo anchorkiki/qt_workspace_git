@@ -10,5 +10,6 @@ DelPatientWidget::DelPatientWidget(QWidget *parent)
 
 DelPatientWidget::~DelPatientWidget()
 {
+    qDebug()<<"析构 DelPatientWidget";
     delete ui;
 }

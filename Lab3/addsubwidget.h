@@ -1,6 +1,6 @@
 #ifndef AddSubWidget_H
 #define AddSubWidget_H
-
+#include <QDebug>
 #include <QWidget>
 
 namespace Ui {

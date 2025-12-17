@@ -10,5 +10,6 @@ ModifyPatWidget::ModifyPatWidget(QWidget *parent)
 
 ModifyPatWidget::~ModifyPatWidget()
 {
+    qDebug()<<"析构 ModifyPatWidget";
     delete ui;
 }

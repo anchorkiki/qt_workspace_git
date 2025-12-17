@@ -32,7 +32,7 @@ public:
 
     void retranslateUi(QWidget *AddDoctorWidget)
     {
-        AddDoctorWidget->setWindowTitle(QCoreApplication::translate("AddDoctorWidget", "Form", nullptr));
+        AddDoctorWidget->setWindowTitle(QCoreApplication::translate("AddDoctorWidget", "\346\267\273\345\212\240\345\214\273\347\224\237", nullptr));
     } // retranslateUi
 
 };
