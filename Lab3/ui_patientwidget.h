@@ -10,6 +10,7 @@
 #define UI_PATIENTWIDGET_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
@@ -56,21 +57,33 @@ public:
 
         searchBtn = new QPushButton(PatientWidget);
         searchBtn->setObjectName("searchBtn");
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/image/search.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        searchBtn->setIcon(icon);
 
         horizontalLayout->addWidget(searchBtn);
 
         addBtn = new QPushButton(PatientWidget);
         addBtn->setObjectName("addBtn");
+        QIcon icon1;
+        icon1.addFile(QString::fromUtf8(":/image/new.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        addBtn->setIcon(icon1);
 
         horizontalLayout->addWidget(addBtn);
 
         delBtn = new QPushButton(PatientWidget);
         delBtn->setObjectName("delBtn");
+        QIcon icon2;
+        icon2.addFile(QString::fromUtf8(":/image/delete.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        delBtn->setIcon(icon2);
 
         horizontalLayout->addWidget(delBtn);
 
         editBtn = new QPushButton(PatientWidget);
         editBtn->setObjectName("editBtn");
+        QIcon icon3;
+        icon3.addFile(QString::fromUtf8(":/image/edit.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        editBtn->setIcon(icon3);
 
         horizontalLayout->addWidget(editBtn);
 
@@ -95,6 +108,7 @@ public:
     void retranslateUi(QWidget *PatientWidget)
     {
         PatientWidget->setWindowTitle(QCoreApplication::translate("PatientWidget", "\346\202\243\350\200\205\347\256\241\347\220\206", nullptr));
+        txtSearch->setPlaceholderText(QCoreApplication::translate("PatientWidget", "\350\257\267\350\276\223\345\205\245\345\247\223\345\220\215", nullptr));
         searchBtn->setText(QCoreApplication::translate("PatientWidget", "\346\237\245\346\211\276", nullptr));
         addBtn->setText(QCoreApplication::translate("PatientWidget", "\346\267\273\345\212\240", nullptr));
         delBtn->setText(QCoreApplication::translate("PatientWidget", "\345\210\240\351\231\244", nullptr));

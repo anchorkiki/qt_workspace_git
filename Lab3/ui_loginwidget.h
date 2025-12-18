@@ -113,6 +113,7 @@ public:
 
         pwdEdit = new QLineEdit(LoginWidget);
         pwdEdit->setObjectName("pwdEdit");
+        pwdEdit->setEchoMode(QLineEdit::EchoMode::Password);
 
         horizontalLayout_2->addWidget(pwdEdit);
 
@@ -161,7 +162,9 @@ public:
         LoginWidget->setWindowTitle(QCoreApplication::translate("LoginWidget", "\347\231\273\345\275\225", nullptr));
         label->setText(QCoreApplication::translate("LoginWidget", "\346\254\242\350\277\216\344\275\277\347\224\250\345\214\273\347\226\227\347\256\241\347\220\206\347\263\273\347\273\237", nullptr));
         label_2->setText(QCoreApplication::translate("LoginWidget", "\347\224\250\346\210\267\345\220\215\357\274\232", nullptr));
+        userEdit->setPlaceholderText(QCoreApplication::translate("LoginWidget", "\350\257\267\350\276\223\345\205\245\347\224\250\346\210\267\345\220\215", nullptr));
         label_3->setText(QCoreApplication::translate("LoginWidget", "\345\257\206\347\240\201\357\274\232", nullptr));
+        pwdEdit->setPlaceholderText(QCoreApplication::translate("LoginWidget", "\350\257\267\350\276\223\345\205\245\345\257\206\347\240\201", nullptr));
         loginBtn->setText(QCoreApplication::translate("LoginWidget", "\347\231\273\345\275\225", nullptr));
         registerBtn->setText(QCoreApplication::translate("LoginWidget", "\346\263\250\345\206\214", nullptr));
     } // retranslateUi

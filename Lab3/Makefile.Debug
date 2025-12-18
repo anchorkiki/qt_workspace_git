@@ -194,8 +194,12 @@ compiler_rcc_clean:
 	-$(DEL_FILE) debug\qrc_res.cpp
 debug/qrc_res.cpp: res.qrc \
 		../../../Qt/6.9.2/mingw_64/bin/rcc.exe \
+		image/new.png \
+		image/delete.png \
 		image/exit.png \
-		image/return.png
+		image/search.png \
+		image/return.png \
+		image/edit.png
 	D:\Qt\6.9.2\mingw_64\bin\rcc.exe -name res --no-zstd res.qrc -o debug\qrc_res.cpp
 
 compiler_moc_predefs_make_all: debug/moc_predefs.h
@@ -627,6 +631,7 @@ debug/moc_addpatientwidget.cpp: addpatientwidget.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qabstractitemmodel.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qitemselectionmodel.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/QModelIndex \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qdatawidgetmapper.h \
 		debug/moc_predefs.h \
 		../../../Qt/6.9.2/mingw_64/bin/moc.exe
 	D:\Qt\6.9.2\mingw_64\bin\moc.exe $(DEFINES) --include D:/Qt_workspace/school/Lab3/debug/moc_predefs.h -ID:/Qt/6.9.2/mingw_64/mkspecs/win32-g++ -ID:/Qt_workspace/school/Lab3 -ID:/Qt/6.9.2/mingw_64/include -ID:/Qt/6.9.2/mingw_64/include/QtWidgets -ID:/Qt/6.9.2/mingw_64/include/QtGui -ID:/Qt/6.9.2/mingw_64/include/QtSql -ID:/Qt/6.9.2/mingw_64/include/QtCore -ID:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -ID:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -ID:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -ID:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -ID:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -ID:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include addpatientwidget.h -o debug\moc_addpatientwidget.cpp
@@ -1237,6 +1242,9 @@ debug/moc_deldocwidget.cpp: deldocwidget.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qlocale.h \
 		../../../Qt/6.9.2/mingw_64/include/QtGui/qguiapplication_platform.h \
 		ui_deldocwidget.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/QVariant \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QApplication \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qapplication.h \
 		debug/moc_predefs.h \
 		../../../Qt/6.9.2/mingw_64/bin/moc.exe
 	D:\Qt\6.9.2\mingw_64\bin\moc.exe $(DEFINES) --include D:/Qt_workspace/school/Lab3/debug/moc_predefs.h -ID:/Qt/6.9.2/mingw_64/mkspecs/win32-g++ -ID:/Qt_workspace/school/Lab3 -ID:/Qt/6.9.2/mingw_64/include -ID:/Qt/6.9.2/mingw_64/include/QtWidgets -ID:/Qt/6.9.2/mingw_64/include/QtGui -ID:/Qt/6.9.2/mingw_64/include/QtSql -ID:/Qt/6.9.2/mingw_64/include/QtCore -ID:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -ID:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -ID:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -ID:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -ID:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -ID:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include deldocwidget.h -o debug\moc_deldocwidget.cpp
@@ -2259,9 +2267,10 @@ debug/moc_mainwideget.cpp: mainwideget.h \
 		modifydocwidget.h \
 		deldocwidget.h \
 		ui_deldocwidget.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/QVariant \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QApplication \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qapplication.h \
 		patientwidget.h \
-		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QDataWidgetMapper \
-		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qdatawidgetmapper.h \
 		addpatientwidget.h \
 		singletodb.h \
 		../../../Qt/6.9.2/mingw_64/include/QtSql/QSqlDatabase \
@@ -2281,6 +2290,7 @@ debug/moc_mainwideget.cpp: mainwideget.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qabstractitemmodel.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qitemselectionmodel.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/QModelIndex \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qdatawidgetmapper.h \
 		modifypatwidget.h \
 		delpatientwidget.h \
 		subwidget.h \
@@ -2693,6 +2703,25 @@ debug/moc_modifypatwidget.cpp: modifypatwidget.h \
 		../../../Qt/6.9.2/mingw_64/include/QtGui/qinputmethod.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qlocale.h \
 		../../../Qt/6.9.2/mingw_64/include/QtGui/qguiapplication_platform.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qdatawidgetmapper.h \
+		singletodb.h \
+		../../../Qt/6.9.2/mingw_64/include/QtSql/QSqlDatabase \
+		../../../Qt/6.9.2/mingw_64/include/QtSql/qsqldatabase.h \
+		../../../Qt/6.9.2/mingw_64/include/QtSql/qtsqlglobal.h \
+		../../../Qt/6.9.2/mingw_64/include/QtSql/qtsql-config.h \
+		../../../Qt/6.9.2/mingw_64/include/QtSql/qtsqlexports.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qmetaobject.h \
+		../../../Qt/6.9.2/mingw_64/include/QtSql/QSqlQuery \
+		../../../Qt/6.9.2/mingw_64/include/QtSql/qsqlquery.h \
+		../../../Qt/6.9.2/mingw_64/include/QtSql/QSqlError \
+		../../../Qt/6.9.2/mingw_64/include/QtSql/qsqlerror.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/QString \
+		../../../Qt/6.9.2/mingw_64/include/QtSql/QSqlTableModel \
+		../../../Qt/6.9.2/mingw_64/include/QtSql/qsqltablemodel.h \
+		../../../Qt/6.9.2/mingw_64/include/QtSql/qsqlquerymodel.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qabstractitemmodel.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qitemselectionmodel.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/QModelIndex \
 		debug/moc_predefs.h \
 		../../../Qt/6.9.2/mingw_64/bin/moc.exe
 	D:\Qt\6.9.2\mingw_64\bin\moc.exe $(DEFINES) --include D:/Qt_workspace/school/Lab3/debug/moc_predefs.h -ID:/Qt/6.9.2/mingw_64/mkspecs/win32-g++ -ID:/Qt_workspace/school/Lab3 -ID:/Qt/6.9.2/mingw_64/include -ID:/Qt/6.9.2/mingw_64/include/QtWidgets -ID:/Qt/6.9.2/mingw_64/include/QtGui -ID:/Qt/6.9.2/mingw_64/include/QtSql -ID:/Qt/6.9.2/mingw_64/include/QtCore -ID:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -ID:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -ID:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -ID:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -ID:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -ID:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include modifypatwidget.h -o debug\moc_modifypatwidget.cpp
@@ -2901,10 +2930,9 @@ debug/moc_modifysubwidget.cpp: modifysubwidget.h \
 	D:\Qt\6.9.2\mingw_64\bin\moc.exe $(DEFINES) --include D:/Qt_workspace/school/Lab3/debug/moc_predefs.h -ID:/Qt/6.9.2/mingw_64/mkspecs/win32-g++ -ID:/Qt_workspace/school/Lab3 -ID:/Qt/6.9.2/mingw_64/include -ID:/Qt/6.9.2/mingw_64/include/QtWidgets -ID:/Qt/6.9.2/mingw_64/include/QtGui -ID:/Qt/6.9.2/mingw_64/include/QtSql -ID:/Qt/6.9.2/mingw_64/include/QtCore -ID:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -ID:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -ID:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -ID:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -ID:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -ID:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include modifysubwidget.h -o debug\moc_modifysubwidget.cpp
 
 debug/moc_patientwidget.cpp: patientwidget.h \
-		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QDataWidgetMapper \
-		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qdatawidgetmapper.h \
-		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
-		../../../Qt/6.9.2/mingw_64/include/QtGui/qtguiglobal.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/QDebug \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qdebug.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qcompare.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qglobal.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qtcoreglobal.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qtversionchecks.h \
@@ -2951,25 +2979,18 @@ debug/moc_patientwidget.cpp: patientwidget.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qtresource.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qttranslation.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qversiontagging.h \
-		../../../Qt/6.9.2/mingw_64/include/QtGui/qtgui-config.h \
-		../../../Qt/6.9.2/mingw_64/include/QtGui/qtguiexports.h \
-		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qtwidgets-config.h \
-		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qtwidgetsexports.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qobject.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qobjectdefs.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qnamespace.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qcompare.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qstdlibdetection.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qcomparehelpers.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/q20type_traits.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qtmetamacros.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qobjectdefs_impl.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qfunctionaltools_impl.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qfloat16.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qhashfunctions.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qstring.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qchar.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qstringview.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qbytearray.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qrefcount.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qnamespace.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qtmetamacros.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qarraydata.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qpair.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qarraydatapointer.h \
@@ -2991,40 +3012,31 @@ debug/moc_patientwidget.cpp: patientwidget.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qstringbuilder.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qstringconverter.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qstringconverter_base.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qlist.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qhashfunctions.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qiterator.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qbytearraylist.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qstringlist.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qalgorithms.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qstringmatcher.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qcoreevent.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qbasictimer.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qabstracteventdispatcher.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qeventloop.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qdeadlinetimer.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qelapsedtimer.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qmetatype.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qdatastream.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qscopedpointer.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qiodevicebase.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qfloat16.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qmath.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qalgorithms.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qtformat_impl.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qiterable.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qmetacontainer.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qcontainerinfo.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qtaggedpointer.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qscopeguard.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qobject_impl.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qbindingstorage.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/QDebug \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qdebug.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qtextstream.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qiodevicebase.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qcontiguouscache.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qsharedpointer.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qshareddata.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qsharedpointer_impl.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qmetatype.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qdatastream.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qscopedpointer.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qiterable.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qmetacontainer.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qcontainerinfo.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qtaggedpointer.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qobjectdefs.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qobjectdefs_impl.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qfunctionaltools_impl.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qscopeguard.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qlist.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qiterator.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qbytearraylist.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qstringlist.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qstringmatcher.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qmap.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qshareddata_impl.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qset.h \
@@ -3032,8 +3044,23 @@ debug/moc_patientwidget.cpp: patientwidget.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qvarlengtharray.h \
 		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QWidget \
 		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qwidget.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
+		../../../Qt/6.9.2/mingw_64/include/QtGui/qtguiglobal.h \
+		../../../Qt/6.9.2/mingw_64/include/QtGui/qtgui-config.h \
+		../../../Qt/6.9.2/mingw_64/include/QtGui/qtguiexports.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qtwidgets-config.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qtwidgetsexports.h \
 		../../../Qt/6.9.2/mingw_64/include/QtGui/qwindowdefs.h \
 		../../../Qt/6.9.2/mingw_64/include/QtGui/qwindowdefs_win.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qobject.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qcoreevent.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qbasictimer.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qabstracteventdispatcher.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qeventloop.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qdeadlinetimer.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qelapsedtimer.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qobject_impl.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qbindingstorage.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qmargins.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/q23utility.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/q20utility.h \
@@ -3534,7 +3561,7 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 
 ####### Compile
 
-debug/adddoctorwidget.o: adddoctorwidget.cpp AddDoctorWidget.h \
+debug/adddoctorwidget.o: adddoctorwidget.cpp adddoctorwidget.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/QDebug \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qdebug.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qcompare.h \
@@ -3732,7 +3759,11 @@ debug/adddoctorwidget.o: adddoctorwidget.cpp AddDoctorWidget.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qpromise.h \
 		../../../Qt/6.9.2/mingw_64/include/QtGui/qinputmethod.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qlocale.h \
-		../../../Qt/6.9.2/mingw_64/include/QtGui/qguiapplication_platform.h
+		../../../Qt/6.9.2/mingw_64/include/QtGui/qguiapplication_platform.h \
+		ui_adddoctorwidget.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/QVariant \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QApplication \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\adddoctorwidget.o adddoctorwidget.cpp
 
 debug/addpatientwidget.o: addpatientwidget.cpp AddPatientWidget.h \
@@ -3951,10 +3982,56 @@ debug/addpatientwidget.o: addpatientwidget.cpp AddPatientWidget.h \
 		../../../Qt/6.9.2/mingw_64/include/QtSql/qsqlquerymodel.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qabstractitemmodel.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qitemselectionmodel.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/QModelIndex
+		../../../Qt/6.9.2/mingw_64/include/QtCore/QModelIndex \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qdatawidgetmapper.h \
+		ui_addpatientwidget.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/QVariant \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QApplication \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qapplication.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QComboBox \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qcombobox.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qstyleoption.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qabstractspinbox.h \
+		../../../Qt/6.9.2/mingw_64/include/QtGui/qvalidator.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qregularexpression.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qslider.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qabstractslider.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qstyle.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qtabbar.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qtabwidget.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qrubberband.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qframe.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QDateEdit \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qdatetimeedit.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qtimezone.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qdatetime.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qcalendar.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QHBoxLayout \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qboxlayout.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qlayout.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qlayoutitem.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qgridlayout.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QLabel \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qlabel.h \
+		../../../Qt/6.9.2/mingw_64/include/QtGui/qpicture.h \
+		../../../Qt/6.9.2/mingw_64/include/QtGui/qtextdocument.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QLineEdit \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qlineedit.h \
+		../../../Qt/6.9.2/mingw_64/include/QtGui/qtextcursor.h \
+		../../../Qt/6.9.2/mingw_64/include/QtGui/qtextformat.h \
+		../../../Qt/6.9.2/mingw_64/include/QtGui/qpen.h \
+		../../../Qt/6.9.2/mingw_64/include/QtGui/qtextoption.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QPushButton \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QSpacerItem \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QSpinBox \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qspinbox.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QVBoxLayout
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\addpatientwidget.o addpatientwidget.cpp
 
-debug/addsubwidget.o: addsubwidget.cpp AddSubWidget.h \
+debug/addsubwidget.o: addsubwidget.cpp addsubwidget.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/QDebug \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qdebug.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qcompare.h \
@@ -4152,7 +4229,11 @@ debug/addsubwidget.o: addsubwidget.cpp AddSubWidget.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qpromise.h \
 		../../../Qt/6.9.2/mingw_64/include/QtGui/qinputmethod.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qlocale.h \
-		../../../Qt/6.9.2/mingw_64/include/QtGui/qguiapplication_platform.h
+		../../../Qt/6.9.2/mingw_64/include/QtGui/qguiapplication_platform.h \
+		ui_addsubwidget.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/QVariant \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QApplication \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\addsubwidget.o addsubwidget.cpp
 
 debug/choosewidget.o: choosewidget.cpp choosewidget.h \
@@ -4354,10 +4435,21 @@ debug/choosewidget.o: choosewidget.cpp choosewidget.h \
 		../../../Qt/6.9.2/mingw_64/include/QtGui/qinputmethod.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qlocale.h \
 		../../../Qt/6.9.2/mingw_64/include/QtGui/qguiapplication_platform.h \
-		ui_choosewidget.h
+		ui_choosewidget.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/QVariant \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QApplication \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qapplication.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QHBoxLayout \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qboxlayout.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qlayout.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qlayoutitem.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qgridlayout.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QPushButton \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qabstractbutton.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\choosewidget.o choosewidget.cpp
 
-debug/deldocwidget.o: deldocwidget.cpp DelDocWidget.h \
+debug/deldocwidget.o: deldocwidget.cpp deldocwidget.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/QDebug \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qdebug.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qcompare.h \
@@ -4556,7 +4648,10 @@ debug/deldocwidget.o: deldocwidget.cpp DelDocWidget.h \
 		../../../Qt/6.9.2/mingw_64/include/QtGui/qinputmethod.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qlocale.h \
 		../../../Qt/6.9.2/mingw_64/include/QtGui/qguiapplication_platform.h \
-		ui_deldocwidget.h
+		ui_deldocwidget.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/QVariant \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QApplication \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\deldocwidget.o deldocwidget.cpp
 
 debug/delpatientwidget.o: delpatientwidget.cpp delpatientwidget.h \
@@ -4758,10 +4853,13 @@ debug/delpatientwidget.o: delpatientwidget.cpp delpatientwidget.h \
 		../../../Qt/6.9.2/mingw_64/include/QtGui/qinputmethod.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qlocale.h \
 		../../../Qt/6.9.2/mingw_64/include/QtGui/qguiapplication_platform.h \
-		ui_delpatientwidget.h
+		ui_delpatientwidget.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/QVariant \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QApplication \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\delpatientwidget.o delpatientwidget.cpp
 
-debug/delsubwidget.o: delsubwidget.cpp DelSubWidget.h \
+debug/delsubwidget.o: delsubwidget.cpp delsubwidget.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/QDebug \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qdebug.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qcompare.h \
@@ -4959,7 +5057,11 @@ debug/delsubwidget.o: delsubwidget.cpp DelSubWidget.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qpromise.h \
 		../../../Qt/6.9.2/mingw_64/include/QtGui/qinputmethod.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qlocale.h \
-		../../../Qt/6.9.2/mingw_64/include/QtGui/qguiapplication_platform.h
+		../../../Qt/6.9.2/mingw_64/include/QtGui/qguiapplication_platform.h \
+		ui_delsubwidget.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/QVariant \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QApplication \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\delsubwidget.o delsubwidget.cpp
 
 debug/docwidget.o: docwidget.cpp docwidget.h \
@@ -5161,7 +5263,47 @@ debug/docwidget.o: docwidget.cpp docwidget.h \
 		../../../Qt/6.9.2/mingw_64/include/QtGui/qinputmethod.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qlocale.h \
 		../../../Qt/6.9.2/mingw_64/include/QtGui/qguiapplication_platform.h \
-		ui_docwidget.h
+		ui_docwidget.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/QVariant \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QApplication \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qapplication.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QHBoxLayout \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qboxlayout.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qlayout.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qlayoutitem.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qgridlayout.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QHeaderView \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qheaderview.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qabstractitemview.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qframe.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qabstractitemmodel.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qitemselectionmodel.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qstyleoption.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qabstractspinbox.h \
+		../../../Qt/6.9.2/mingw_64/include/QtGui/qvalidator.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qregularexpression.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qslider.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qabstractslider.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qstyle.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qtabbar.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qtabwidget.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qrubberband.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QLineEdit \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qlineedit.h \
+		../../../Qt/6.9.2/mingw_64/include/QtGui/qtextcursor.h \
+		../../../Qt/6.9.2/mingw_64/include/QtGui/qtextdocument.h \
+		../../../Qt/6.9.2/mingw_64/include/QtGui/qtextformat.h \
+		../../../Qt/6.9.2/mingw_64/include/QtGui/qpen.h \
+		../../../Qt/6.9.2/mingw_64/include/QtGui/qtextoption.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QPushButton \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QSpacerItem \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QTableView \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qtableview.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QVBoxLayout
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\docwidget.o docwidget.cpp
 
 debug/loginwidget.o: loginwidget.cpp loginwidget.h \
@@ -5364,6 +5506,30 @@ debug/loginwidget.o: loginwidget.cpp loginwidget.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qlocale.h \
 		../../../Qt/6.9.2/mingw_64/include/QtGui/qguiapplication_platform.h \
 		ui_loginwidget.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/QVariant \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QApplication \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qapplication.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QHBoxLayout \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qboxlayout.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qlayout.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qlayoutitem.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qgridlayout.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QLabel \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qlabel.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qframe.h \
+		../../../Qt/6.9.2/mingw_64/include/QtGui/qpicture.h \
+		../../../Qt/6.9.2/mingw_64/include/QtGui/qtextdocument.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QLineEdit \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qlineedit.h \
+		../../../Qt/6.9.2/mingw_64/include/QtGui/qtextcursor.h \
+		../../../Qt/6.9.2/mingw_64/include/QtGui/qtextformat.h \
+		../../../Qt/6.9.2/mingw_64/include/QtGui/qpen.h \
+		../../../Qt/6.9.2/mingw_64/include/QtGui/qtextoption.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QPushButton \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QSpacerItem \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QVBoxLayout \
 		singletodb.h \
 		../../../Qt/6.9.2/mingw_64/include/QtSql/QSqlDatabase \
 		../../../Qt/6.9.2/mingw_64/include/QtSql/qsqldatabase.h \
@@ -5590,9 +5756,10 @@ debug/main.o: main.cpp mainwideget.h \
 		modifydocwidget.h \
 		deldocwidget.h \
 		ui_deldocwidget.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/QVariant \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QApplication \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qapplication.h \
 		patientwidget.h \
-		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QDataWidgetMapper \
-		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qdatawidgetmapper.h \
 		addpatientwidget.h \
 		singletodb.h \
 		../../../Qt/6.9.2/mingw_64/include/QtSql/QSqlDatabase \
@@ -5612,14 +5779,13 @@ debug/main.o: main.cpp mainwideget.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qabstractitemmodel.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qitemselectionmodel.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/QModelIndex \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qdatawidgetmapper.h \
 		modifypatwidget.h \
 		delpatientwidget.h \
 		subwidget.h \
 		addsubwidget.h \
 		modifysubwidget.h \
-		delsubwidget.h \
-		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QApplication \
-		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qapplication.h
+		delsubwidget.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\main.o main.cpp
 
 debug/mainwideget.o: mainwideget.cpp mainwideget.h \
@@ -5828,9 +5994,10 @@ debug/mainwideget.o: mainwideget.cpp mainwideget.h \
 		modifydocwidget.h \
 		deldocwidget.h \
 		ui_deldocwidget.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/QVariant \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QApplication \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qapplication.h \
 		patientwidget.h \
-		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QDataWidgetMapper \
-		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qdatawidgetmapper.h \
 		addpatientwidget.h \
 		singletodb.h \
 		../../../Qt/6.9.2/mingw_64/include/QtSql/QSqlDatabase \
@@ -5850,13 +6017,32 @@ debug/mainwideget.o: mainwideget.cpp mainwideget.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qabstractitemmodel.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qitemselectionmodel.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/QModelIndex \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qdatawidgetmapper.h \
 		modifypatwidget.h \
 		delpatientwidget.h \
 		subwidget.h \
 		addsubwidget.h \
 		modifysubwidget.h \
 		delsubwidget.h \
-		ui_mainwideget.h
+		ui_mainwideget.h \
+		../../../Qt/6.9.2/mingw_64/include/QtGui/QIcon \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QHBoxLayout \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qboxlayout.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qlayout.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qlayoutitem.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qgridlayout.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QLabel \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qlabel.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qframe.h \
+		../../../Qt/6.9.2/mingw_64/include/QtGui/qpicture.h \
+		../../../Qt/6.9.2/mingw_64/include/QtGui/qtextdocument.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QPushButton \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QSpacerItem \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QStackedWidget \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qstackedwidget.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QVBoxLayout
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\mainwideget.o mainwideget.cpp
 
 debug/modifydocwidget.o: modifydocwidget.cpp modifydocwidget.h \
@@ -6058,7 +6244,10 @@ debug/modifydocwidget.o: modifydocwidget.cpp modifydocwidget.h \
 		../../../Qt/6.9.2/mingw_64/include/QtGui/qinputmethod.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qlocale.h \
 		../../../Qt/6.9.2/mingw_64/include/QtGui/qguiapplication_platform.h \
-		ui_modifydocwidget.h
+		ui_modifydocwidget.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/QVariant \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QApplication \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\modifydocwidget.o modifydocwidget.cpp
 
 debug/modifypatwidget.o: modifypatwidget.cpp modifypatwidget.h \
@@ -6260,7 +6449,70 @@ debug/modifypatwidget.o: modifypatwidget.cpp modifypatwidget.h \
 		../../../Qt/6.9.2/mingw_64/include/QtGui/qinputmethod.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qlocale.h \
 		../../../Qt/6.9.2/mingw_64/include/QtGui/qguiapplication_platform.h \
-		ui_modifypatwidget.h
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qdatawidgetmapper.h \
+		singletodb.h \
+		../../../Qt/6.9.2/mingw_64/include/QtSql/QSqlDatabase \
+		../../../Qt/6.9.2/mingw_64/include/QtSql/qsqldatabase.h \
+		../../../Qt/6.9.2/mingw_64/include/QtSql/qtsqlglobal.h \
+		../../../Qt/6.9.2/mingw_64/include/QtSql/qtsql-config.h \
+		../../../Qt/6.9.2/mingw_64/include/QtSql/qtsqlexports.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qmetaobject.h \
+		../../../Qt/6.9.2/mingw_64/include/QtSql/QSqlQuery \
+		../../../Qt/6.9.2/mingw_64/include/QtSql/qsqlquery.h \
+		../../../Qt/6.9.2/mingw_64/include/QtSql/QSqlError \
+		../../../Qt/6.9.2/mingw_64/include/QtSql/qsqlerror.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/QString \
+		../../../Qt/6.9.2/mingw_64/include/QtSql/QSqlTableModel \
+		../../../Qt/6.9.2/mingw_64/include/QtSql/qsqltablemodel.h \
+		../../../Qt/6.9.2/mingw_64/include/QtSql/qsqlquerymodel.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qabstractitemmodel.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qitemselectionmodel.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/QModelIndex \
+		ui_modifypatwidget.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/QVariant \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QApplication \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qapplication.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QComboBox \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qcombobox.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qstyleoption.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qabstractspinbox.h \
+		../../../Qt/6.9.2/mingw_64/include/QtGui/qvalidator.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qregularexpression.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qslider.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qabstractslider.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qstyle.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qtabbar.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qtabwidget.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qrubberband.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qframe.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QDateEdit \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qdatetimeedit.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qtimezone.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qdatetime.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qcalendar.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QHBoxLayout \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qboxlayout.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qlayout.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qlayoutitem.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qgridlayout.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QLabel \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qlabel.h \
+		../../../Qt/6.9.2/mingw_64/include/QtGui/qpicture.h \
+		../../../Qt/6.9.2/mingw_64/include/QtGui/qtextdocument.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QLineEdit \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qlineedit.h \
+		../../../Qt/6.9.2/mingw_64/include/QtGui/qtextcursor.h \
+		../../../Qt/6.9.2/mingw_64/include/QtGui/qtextformat.h \
+		../../../Qt/6.9.2/mingw_64/include/QtGui/qpen.h \
+		../../../Qt/6.9.2/mingw_64/include/QtGui/qtextoption.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QPushButton \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QSpacerItem \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QSpinBox \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qspinbox.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QVBoxLayout
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\modifypatwidget.o modifypatwidget.cpp
 
 debug/modifysubwidget.o: modifysubwidget.cpp modifysubwidget.h \
@@ -6462,14 +6714,16 @@ debug/modifysubwidget.o: modifysubwidget.cpp modifysubwidget.h \
 		../../../Qt/6.9.2/mingw_64/include/QtGui/qinputmethod.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qlocale.h \
 		../../../Qt/6.9.2/mingw_64/include/QtGui/qguiapplication_platform.h \
-		ui_modifysubwidget.h
+		ui_modifysubwidget.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/QVariant \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QApplication \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\modifysubwidget.o modifysubwidget.cpp
 
 debug/patientwidget.o: patientwidget.cpp patientwidget.h \
-		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QDataWidgetMapper \
-		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qdatawidgetmapper.h \
-		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
-		../../../Qt/6.9.2/mingw_64/include/QtGui/qtguiglobal.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/QDebug \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qdebug.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qcompare.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qglobal.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qtcoreglobal.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qtversionchecks.h \
@@ -6516,25 +6770,18 @@ debug/patientwidget.o: patientwidget.cpp patientwidget.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qtresource.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qttranslation.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qversiontagging.h \
-		../../../Qt/6.9.2/mingw_64/include/QtGui/qtgui-config.h \
-		../../../Qt/6.9.2/mingw_64/include/QtGui/qtguiexports.h \
-		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qtwidgets-config.h \
-		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qtwidgetsexports.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qobject.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qobjectdefs.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qnamespace.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qcompare.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qstdlibdetection.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qcomparehelpers.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/q20type_traits.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qtmetamacros.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qobjectdefs_impl.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qfunctionaltools_impl.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qfloat16.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qhashfunctions.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qstring.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qchar.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qstringview.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qbytearray.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qrefcount.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qnamespace.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qtmetamacros.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qarraydata.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qpair.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qarraydatapointer.h \
@@ -6556,40 +6803,31 @@ debug/patientwidget.o: patientwidget.cpp patientwidget.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qstringbuilder.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qstringconverter.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qstringconverter_base.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qlist.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qhashfunctions.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qiterator.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qbytearraylist.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qstringlist.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qalgorithms.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qstringmatcher.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qcoreevent.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qbasictimer.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qabstracteventdispatcher.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qeventloop.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qdeadlinetimer.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qelapsedtimer.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qmetatype.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qdatastream.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qscopedpointer.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qiodevicebase.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qfloat16.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qmath.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qalgorithms.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qtformat_impl.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qiterable.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qmetacontainer.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qcontainerinfo.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qtaggedpointer.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qscopeguard.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qobject_impl.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qbindingstorage.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/QDebug \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qdebug.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qtextstream.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qiodevicebase.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qcontiguouscache.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qsharedpointer.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qshareddata.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qsharedpointer_impl.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qmetatype.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qdatastream.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qscopedpointer.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qiterable.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qmetacontainer.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qcontainerinfo.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qtaggedpointer.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qobjectdefs.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qobjectdefs_impl.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qfunctionaltools_impl.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qscopeguard.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qlist.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qiterator.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qbytearraylist.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qstringlist.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qstringmatcher.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qmap.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qshareddata_impl.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qset.h \
@@ -6597,8 +6835,23 @@ debug/patientwidget.o: patientwidget.cpp patientwidget.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qvarlengtharray.h \
 		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QWidget \
 		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qwidget.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
+		../../../Qt/6.9.2/mingw_64/include/QtGui/qtguiglobal.h \
+		../../../Qt/6.9.2/mingw_64/include/QtGui/qtgui-config.h \
+		../../../Qt/6.9.2/mingw_64/include/QtGui/qtguiexports.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qtwidgets-config.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qtwidgetsexports.h \
 		../../../Qt/6.9.2/mingw_64/include/QtGui/qwindowdefs.h \
 		../../../Qt/6.9.2/mingw_64/include/QtGui/qwindowdefs_win.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qobject.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qcoreevent.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qbasictimer.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qabstracteventdispatcher.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qeventloop.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qdeadlinetimer.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qelapsedtimer.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qobject_impl.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qbindingstorage.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qmargins.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/q23utility.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/q20utility.h \
@@ -6667,6 +6920,46 @@ debug/patientwidget.o: patientwidget.cpp patientwidget.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qlocale.h \
 		../../../Qt/6.9.2/mingw_64/include/QtGui/qguiapplication_platform.h \
 		ui_patientwidget.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/QVariant \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QApplication \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qapplication.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QHBoxLayout \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qboxlayout.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qlayout.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qlayoutitem.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qgridlayout.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QHeaderView \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qheaderview.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qabstractitemview.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qframe.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qabstractitemmodel.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qitemselectionmodel.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qstyleoption.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qabstractspinbox.h \
+		../../../Qt/6.9.2/mingw_64/include/QtGui/qvalidator.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qregularexpression.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qslider.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qabstractslider.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qstyle.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qtabbar.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qtabwidget.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qrubberband.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QLineEdit \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qlineedit.h \
+		../../../Qt/6.9.2/mingw_64/include/QtGui/qtextcursor.h \
+		../../../Qt/6.9.2/mingw_64/include/QtGui/qtextdocument.h \
+		../../../Qt/6.9.2/mingw_64/include/QtGui/qtextformat.h \
+		../../../Qt/6.9.2/mingw_64/include/QtGui/qpen.h \
+		../../../Qt/6.9.2/mingw_64/include/QtGui/qtextoption.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QPushButton \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QSpacerItem \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QTableView \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qtableview.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QVBoxLayout \
 		singletodb.h \
 		../../../Qt/6.9.2/mingw_64/include/QtSql/QSqlDatabase \
 		../../../Qt/6.9.2/mingw_64/include/QtSql/qsqldatabase.h \
@@ -6682,8 +6975,6 @@ debug/patientwidget.o: patientwidget.cpp patientwidget.h \
 		../../../Qt/6.9.2/mingw_64/include/QtSql/QSqlTableModel \
 		../../../Qt/6.9.2/mingw_64/include/QtSql/qsqltablemodel.h \
 		../../../Qt/6.9.2/mingw_64/include/QtSql/qsqlquerymodel.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qabstractitemmodel.h \
-		../../../Qt/6.9.2/mingw_64/include/QtCore/qitemselectionmodel.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/QModelIndex \
 		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QMessageBox \
 		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qmessagebox.h \
@@ -7035,7 +7326,47 @@ debug/subwidget.o: subwidget.cpp subwidget.h \
 		../../../Qt/6.9.2/mingw_64/include/QtGui/qinputmethod.h \
 		../../../Qt/6.9.2/mingw_64/include/QtCore/qlocale.h \
 		../../../Qt/6.9.2/mingw_64/include/QtGui/qguiapplication_platform.h \
-		ui_subwidget.h
+		ui_subwidget.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/QVariant \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QApplication \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qapplication.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QHBoxLayout \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qboxlayout.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qlayout.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qlayoutitem.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qgridlayout.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QHeaderView \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qheaderview.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qabstractitemview.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qframe.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qabstractitemmodel.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qitemselectionmodel.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qstyleoption.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qabstractspinbox.h \
+		../../../Qt/6.9.2/mingw_64/include/QtGui/qvalidator.h \
+		../../../Qt/6.9.2/mingw_64/include/QtCore/qregularexpression.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qslider.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qabstractslider.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qstyle.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qtabbar.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qtabwidget.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qrubberband.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QLineEdit \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qlineedit.h \
+		../../../Qt/6.9.2/mingw_64/include/QtGui/qtextcursor.h \
+		../../../Qt/6.9.2/mingw_64/include/QtGui/qtextdocument.h \
+		../../../Qt/6.9.2/mingw_64/include/QtGui/qtextformat.h \
+		../../../Qt/6.9.2/mingw_64/include/QtGui/qpen.h \
+		../../../Qt/6.9.2/mingw_64/include/QtGui/qtextoption.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QPushButton \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qpushbutton.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qabstractbutton.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QSpacerItem \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QTableView \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/qtableview.h \
+		../../../Qt/6.9.2/mingw_64/include/QtWidgets/QVBoxLayout
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\subwidget.o subwidget.cpp
 
 debug/qrc_res.o: debug/qrc_res.cpp 
